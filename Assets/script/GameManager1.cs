@@ -4,8 +4,8 @@ public class GameManager1 : MonoBehaviour
 {
     public GameObject rock;
     public float timeSpawn=1.5f;
-    public float gioihanY=10f;
-    public float vitrispawnX=10f;
+    public float gioihanY=6.5f;
+    public float vitrispawnX=20f;
     private float timeCount=0f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

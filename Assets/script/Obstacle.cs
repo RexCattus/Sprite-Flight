@@ -29,7 +29,11 @@ public class Obstacle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.Translate(Vector3.left * Time.deltaTime * 6);
+        if(transform.position.x<-30f||transform.position.y<-20f||transform.position.y>20f)
+        {
+            Destroy(gameObject);
+        }
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
