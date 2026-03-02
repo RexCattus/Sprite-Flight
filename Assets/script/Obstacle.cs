@@ -29,10 +29,14 @@ public class Obstacle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.left * Time.deltaTime * 6);
-        if(transform.position.x<-30f||transform.position.y<-20f||transform.position.y>20f)
+        rb.AddForce(Vector2.left * Time.deltaTime * 20);
+        if(transform.position.x<-20f||transform.position.x>25f||transform.position.y<-12f||transform.position.y>12f)
         {
             Destroy(gameObject);
+        }
+        if(rb.linearVelocity.magnitude>maxSpd)
+        {
+            rb.linearVelocity=rb.linearVelocity.normalized*maxSpd;
         }
     }
     void OnCollisionEnter2D(Collision2D collision)

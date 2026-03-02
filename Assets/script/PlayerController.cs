@@ -2,6 +2,7 @@ using UnityEngine.InputSystem;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class PlayerController : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class PlayerController : MonoBehaviour
     private Button Restart;
     public GameObject explosionEffect; // Prefab hiệu ứng nổ
     public GameManager gameManager; // Tham chiếu đến GameManager để cập nhật điểm số
+
+    public AudioSource explosionSound;
+    public AudioSource flameSound;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

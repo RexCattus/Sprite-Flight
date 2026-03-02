@@ -722,7 +722,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!50 &818447680
 Rigidbody2D:
   serializedVersion: 5
@@ -789,6 +789,8 @@ MonoBehaviour:
   UIdoc: {fileID: 324520330}
   explosionEffect: {fileID: 1123483977833261923, guid: 0df9b6f2509e6fc41a90808bfb411a8e, type: 3}
   gameManager: {fileID: 286099871}
+  explosionSound: {fileID: 0}
+  flameSound: {fileID: 0}
 --- !u!1 &865682532
 GameObject:
   m_ObjectHideFlags: 0
@@ -1628,7 +1630,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: a2396547ed1318346b3936baaeb1be22, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1649,7 +1651,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a2396547ed1318346b3936baaeb1be22, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1794,7 +1796,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: a2396547ed1318346b3936baaeb1be22, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1815,7 +1817,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a2396547ed1318346b3936baaeb1be22, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
