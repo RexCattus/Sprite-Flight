@@ -14,23 +14,23 @@ public class Obstacle : MonoBehaviour
     void Start()
     {
         float RandomSize = Random.Range(minSize, maxSize);
-        transform.localScale = new Vector3(RandomSize,RandomSize, 1);
+        transform.localScale = new Vector3(RandomSize, RandomSize, 1);
 
         rb = GetComponent<Rigidbody2D>();
-        float randomspd = Random.Range(minSpd, maxSpd)/RandomSize;
+        float randomspd = Random.Range(minSpd, maxSpd) / RandomSize;
 
-        Vector2 randomdir=Random.insideUnitCircle;
+        Vector2 randomdir = Random.insideUnitCircle;
         rb.AddForce(randomdir * randomspd);
 
-        float randomspin=Random.Range(-maxspinspd, maxspinspd);
+        float randomspin = Random.Range(-maxspinspd, maxspinspd);
         rb.AddTorque(randomspin);
     }
 
     // Update is called once per frame
     void Update()
     {
-        rb.AddForce(Vector2.left * Time.deltaTime * 20);
-        if(transform.position.x<-20f||transform.position.x>25f||transform.position.y<-12f||transform.position.y>12f)
+        rb.AddForce(Vector3.left * Time.deltaTime * 6);
+        if (transform.position.x < -22f || transform.position.x > 22f || transform.position.y < -12f || transform.position.y > 12f)
         {
             Destroy(gameObject);
         }
@@ -41,8 +41,8 @@ public class Obstacle : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Vector2 contactPoint=collision.GetContact(0).point;
-        GameObject bounceEffect=Instantiate(explosionEffect, contactPoint, Quaternion.identity);
+        Vector2 contactPoint = collision.GetContact(0).point;
+        GameObject bounceEffect = Instantiate(explosionEffect, contactPoint, Quaternion.identity);
         Destroy(bounceEffect, 1f); // Hủy hiệu ứng sau 1 giây
     }
 }
