@@ -12,13 +12,13 @@ public class PlayerController : MonoBehaviour
     private float elapsedTime = 0f;
     private float score = 0f;
     public float scoreMutiplier = 10f;
-    public GameObject flameEffect; // Prefab hiệu ứng nổ
+    public GameObject flameEffect;
+    public GameObject ExhaustEffect;
     public UIDocument UIdoc; // Tham chiếu đến UI Document chứa Text để hiển thị điểm số
     private Label scoreText;
     private Button Restart;
     public GameObject explosionEffect; // Prefab hiệu ứng nổ
     public GameManager gameManager; // Tham chiếu đến GameManager để cập nhật điểm số
-    public AudioSource flameSound;
     public AudioSource EngineSound;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -54,25 +54,40 @@ public class PlayerController : MonoBehaviour
         scoreText.text = "Score: " + score; //Cập nhật điểm số trên UI
     }
     private void MovePlayer()
+{
+    // 1. NẾU ĐANG GIỮ CHUỘT
+    if (Mouse.current.leftButton.isPressed)
     {
-        if (Mouse.current.leftButton.isPressed)
+        Vector3 mousepos = Camera.main.ScreenToWorldPoint(Mouse.current.position.value);
+        Vector2 direction = mousepos - transform.position; 
+        transform.up = direction; 
+        rb.AddForce(direction.normalized * speed); 
+
+        if (rb.linearVelocity.magnitude > maxSpeed)
         {
-            //Tinh toan huong nhin den vi tri chuot
-            Vector3 mousepos = Camera.main.ScreenToWorldPoint(Mouse.current.position.value);
-            Vector2 direction = mousepos - transform.position; //phai la Vector2 de khong phai nhin huong Z
-            EngineSound.Play();
-
-            transform.up = direction; //xoay player theo huong chuot
-            rb.AddForce(direction.normalized * speed); //normalized de khi di chuot xa gan thi spd ko doi.
-
-            if (rb.linearVelocity.magnitude > maxSpeed)
-            {
-                rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed; //gioi han toc do toi da
-            }
-            flameEffect.SetActive(true);
+            rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed; 
         }
-        else { flameEffect.SetActive(false); }
+
+        flameEffect.SetActive(true);
+        ExhaustEffect.SetActive(true);  
+
+        // Bật âm thanh nếu nó chưa chạy
+        if (EngineSound.isPlaying == false) { 
+            EngineSound.Play(); 
+        }
     }
+    // 2. NẾU KHÔNG GIỮ CHUỘT (hoặc vừa nhả ra)
+    else 
+    { 
+        flameEffect.SetActive(false); 
+        ExhaustEffect.SetActive(false); 
+
+        // Tắt âm thanh
+        if (EngineSound.isPlaying == true) {
+            EngineSound.Stop();
+        }
+    }
+}
     private void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Tải lại scene hiện tại để bắt đầu lại trò chơi
