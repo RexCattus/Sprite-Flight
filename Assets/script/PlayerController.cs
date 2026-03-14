@@ -122,7 +122,7 @@ public class PlayerController : MonoBehaviour
         vitrihientai.y = Mathf.Clamp(vitrihientai.y, minY, maxY);
         transform.position = vitrihientai;
     }
-    void OnTriggerEnter2D(Collider other)
+    private void OnTriggerEnter2D(Collider other)
     {
         if (other.gameObject.CompareTag("Fuel"))
         {
