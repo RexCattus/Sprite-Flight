@@ -1,15 +1,26 @@
 using UnityEngine;
 using System.Collections.Generic;
-public class Grid : MonoBehaviour
+
+public class MyPathGrid : MonoBehaviour
 {
+    public static MyPathGrid Instance { get; private set; }
+
+    public bool is2D = true;
     public LayerMask unwalkableMask;
     public Vector2 gridWorldSize;
     public float nodeRadius;
-    Node[,] grid; // mảng hai chiều lưu các Node (Node[,,] sẽ là mảng 3 chiều)
-    int gridSizeX;
-    int gridSizeY;
+
+    Node[,] grid;
+    int gridSizeX, gridSizeY;
+
     void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
         CreateGrid();
     }
 
@@ -23,126 +34,112 @@ public class Grid : MonoBehaviour
         {
             for (int y = 0; y < gridSizeY; y++)
             {
-                // Tính vị trí từng ô và coi có va chạm với vật cản không
-                // Thay Vector3.forward bằng Vector3.up
-                Vector3 worldPoint = transform.position - Vector3.right * gridWorldSize.x / 2 - Vector3.up * gridWorldSize.y / 2
-                                     + Vector3.right * (x * nodeRadius * 2 + nodeRadius)
-                                     + Vector3.up * (y * nodeRadius * 2 + nodeRadius);
-                bool walkable = !(Physics2D.OverlapCircle(worldPoint, nodeRadius, unwalkableMask));
+                Vector3 worldPoint;
+                if (is2D)
+                {
+                    worldPoint = transform.position
+                        - Vector3.right * gridWorldSize.x / 2
+                        - Vector3.up * gridWorldSize.y / 2
+                        + Vector3.right * (x * nodeRadius * 2 + nodeRadius)
+                        + Vector3.up * (y * nodeRadius * 2 + nodeRadius);
+                }
+                else
+                {
+                    worldPoint = transform.position
+                        - Vector3.right * gridWorldSize.x / 2
+                        - Vector3.forward * gridWorldSize.y / 2
+                        + Vector3.right * (x * nodeRadius * 2 + nodeRadius)
+                        + Vector3.forward * (y * nodeRadius * 2 + nodeRadius);
+                }
+
+                bool walkable = CheckWalkable(worldPoint);
                 grid[x, y] = new Node(walkable, worldPoint, x, y);
             }
         }
     }
 
-    List<Node> GetNeighbours(Node node)
+    bool CheckWalkable(Vector3 point)
     {
-        List<Node> neighbours = new List<Node>();
-
-        for (int x = -1; x <= 1; x++)
-        {
-            for (int y = -1; y <= 1; y++)
-            {
-                if (x == 0 && y == 0)
-                    continue;
-
-                int checkX = node.gridX + x;
-                int checkY = node.gridY + y;
-
-                if (checkX >= 0 && checkX < grid.GetLength(0) && checkY >= 0 && checkY < grid.GetLength(1))
-                {
-                    neighbours.Add(grid[checkX, checkY]);
-                }
-            }
-        }
-
-        return neighbours;
+        if (is2D)
+            return !Physics2D.OverlapCircle(point, nodeRadius, unwalkableMask);
+        else
+            return !Physics.CheckSphere(point, nodeRadius, unwalkableMask);
     }
 
-    int GetDistance(Node nodeA, Node nodeB)
+    // Gọi hàm này nếu map thay đổi runtime (cửa mở/đóng, vật cản xuất hiện...)
+    public void RefreshGrid() => CreateGrid();
+
+    public Node GetNodeFromWorldPos(Vector3 worldPos)
     {
-        int dstX = Mathf.Abs(nodeA.gridX - nodeB.gridX);
-        int dstY = Mathf.Abs(nodeA.gridY - nodeB.gridY);
+        float percentX = Mathf.Clamp01((worldPos.x - transform.position.x + gridWorldSize.x / 2) / gridWorldSize.x);
+        float percentY;
 
-        if (dstX > dstY)
-            return 14 * dstY + 10 * (dstX - dstY);
-        return 14 * dstX + 10 * (dstY - dstX);
-    }
-
-    public Node GetNodeFromWorldPos(Vector3 worldPosition)
-    {
-        // Chỉnh lại để dùng worldPosition.y thay vì .z
-        float percentX = (worldPosition.x + gridWorldSize.x / 2) / gridWorldSize.x;
-        float percentY = (worldPosition.y + gridWorldSize.y / 2) / gridWorldSize.y;
-
-        percentX = Mathf.Clamp01(percentX);
-        percentY = Mathf.Clamp01(percentY);
+        if (is2D)
+            percentY = Mathf.Clamp01((worldPos.y - transform.position.y + gridWorldSize.y / 2) / gridWorldSize.y);
+        else
+            percentY = Mathf.Clamp01((worldPos.z - transform.position.z + gridWorldSize.y / 2) / gridWorldSize.y);
 
         int x = Mathf.RoundToInt((gridSizeX - 1) * percentX);
         int y = Mathf.RoundToInt((gridSizeY - 1) * percentY);
         return grid[x, y];
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    public void FindPath(Vector3 startPos, Vector3 targetPos, AStarAgent requester)
     {
+        Node startNode = GetNearestWalkableNode(GetNodeFromWorldPos(startPos));
+        Node targetNode = GetNearestWalkableNode(GetNodeFromWorldPos(targetPos));
 
-    }
+        // Reset toàn bộ node trước mỗi lần tìm — fix bug gCost cũ
+        foreach (Node n in grid)
+        {
+            n.gCost = int.MaxValue;
+            n.hCost = 0;
+            n.parent = null;
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
+        startNode.gCost = 0;
+        startNode.hCost = GetDistance(startNode, targetNode);
 
-    }
-
-    public void FindPath(Vector3 startPos, Vector3 targetPos)
-    {
-        Node startNode = GetNodeFromWorldPos(startPos);
-        Node targetNode = GetNodeFromWorldPos(targetPos);
-
-        List<Node> openSet = new List<Node>();
+        // SortedSet thay List → O(log n) thay vì O(n)
+        SortedSet<Node> openSet = new SortedSet<Node>();
         HashSet<Node> closedSet = new HashSet<Node>();
         openSet.Add(startNode);
 
         while (openSet.Count > 0)
         {
-            Node currentNode = openSet[0];
-            for (int i = 1; i < openSet.Count; i++)
-            {
-                if (openSet[i].fCost < currentNode.fCost)
-                {
-                    currentNode = openSet[i];
-                }
-            }
-
+            Node currentNode = openSet.Min;
             openSet.Remove(currentNode);
             closedSet.Add(currentNode);
 
             if (currentNode == targetNode)
             {
-                RetracePath(startNode, targetNode);
+                RetracePath(startNode, targetNode, requester);
                 return;
             }
 
             foreach (Node neighbour in GetNeighbours(currentNode))
             {
                 if (!neighbour.walkable || closedSet.Contains(neighbour))
-                {
                     continue;
-                }
 
-                int newMovementCostToNeighbour = currentNode.gCost + GetDistance(currentNode, neighbour);
-                if (newMovementCostToNeighbour < neighbour.gCost || !openSet.Contains(neighbour))
+                int newGCost = currentNode.gCost + GetDistance(currentNode, neighbour);
+                if (newGCost < neighbour.gCost)
                 {
-                    neighbour.gCost = newMovementCostToNeighbour;
+                    // Phải remove trước khi update để SortedSet sắp xếp lại đúng
+                    openSet.Remove(neighbour);
+                    neighbour.gCost = newGCost;
                     neighbour.hCost = GetDistance(neighbour, targetNode);
                     neighbour.parent = currentNode;
-
-                    if (!openSet.Contains(neighbour))
-                        openSet.Add(neighbour);
+                    openSet.Add(neighbour);
                 }
             }
         }
+
+        // Không tìm được path — báo lại cho agent biết
+        requester.SetPath(null);
     }
-    void RetracePath(Node startNode, Node endNode)
+
+    void RetracePath(Node startNode, Node endNode, AStarAgent requester)
     {
         List<Node> path = new List<Node>();
         Node currentNode = endNode;
@@ -153,25 +150,73 @@ public class Grid : MonoBehaviour
             currentNode = currentNode.parent;
         }
         path.Reverse();
-
-        // Tìm Player và gán đường đi
-        PlayerMovement playerMove = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
-        if (playerMove != null)
-        {
-            playerMove.path = path; // Gán danh sách mới
-            Debug.Log("Đã gửi đường đi cho Player! Số bước: " + path.Count);
-        }
+        requester.SetPath(path);
     }
-    void OnDrawGizmos()
+
+    List<Node> GetNeighbours(Node node)
     {
-        Gizmos.DrawWireCube(transform.position, new Vector3(gridWorldSize.x, gridWorldSize.y, 0.1f));
-        if (grid != null)
+        List<Node> neighbours = new List<Node>();
+
+        for (int x = -1; x <= 1; x++)
         {
-            foreach (Node n in grid)
+            for (int y = -1; y <= 1; y++)
             {
-                Gizmos.color = (n.walkable) ? Color.white : Color.red;
-                Gizmos.DrawCube(n.worldPos, Vector3.one * (nodeRadius * 2 - .05f));
+                if (x == 0 && y == 0) continue;
+
+                int checkX = node.gridX + x;
+                int checkY = node.gridY + y;
+
+                if (checkX >= 0 && checkX < gridSizeX && checkY >= 0 && checkY < gridSizeY)
+                    neighbours.Add(grid[checkX, checkY]);
             }
         }
+        return neighbours;
+    }
+
+    int GetDistance(Node nodeA, Node nodeB)
+    {
+        int dstX = Mathf.Abs(nodeA.gridX - nodeB.gridX);
+        int dstY = Mathf.Abs(nodeA.gridY - nodeB.gridY);
+
+        if (dstX > dstY) return 14 * dstY + 10 * (dstX - dstY);
+        return 14 * dstX + 10 * (dstY - dstX);
+    }
+
+    // Vẽ grid trong Scene view để debug
+    void OnDrawGizmos()
+    {
+        Gizmos.DrawWireCube(transform.position, new Vector3(gridWorldSize.x, gridWorldSize.y, 1f));
+
+        if (grid == null) return;
+        foreach (Node n in grid)
+        {
+            Gizmos.color = n.walkable ? new Color(1, 1, 1, 0.1f) : new Color(1, 0, 0, 0.4f);
+            Gizmos.DrawCube(n.worldPos, Vector3.one * (nodeRadius * 1.8f));
+        }
+    }
+    public Node GetNearestWalkableNode(Node node)
+    {
+        if (node.walkable) return node;
+
+        // Tìm node walkable gần nhất theo vòng tròn mở rộng dần
+        for (int radius = 1; radius < 5; radius++)
+        {
+            for (int x = -radius; x <= radius; x++)
+            {
+                for (int y = -radius; y <= radius; y++)
+                {
+                    int checkX = node.gridX + x;
+                    int checkY = node.gridY + y;
+
+                    if (checkX >= 0 && checkX < gridSizeX &&
+                        checkY >= 0 && checkY < gridSizeY)
+                    {
+                        if (grid[checkX, checkY].walkable)
+                            return grid[checkX, checkY];
+                    }
+                }
+            }
+        }
+        return node; // fallback
     }
 }

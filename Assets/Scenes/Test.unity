@@ -147,7 +147,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 202414975}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -164,8 +164,8 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!61 &202414977
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -298,8 +298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d656a7c923a230f4dba8eb7eb14361a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  targetTransform: {fileID: 1113774232}
-  spd: 5
+  speed: 5
 --- !u!1 &389384878
 GameObject:
   m_ObjectHideFlags: 0
@@ -576,70 +575,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &635200712
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 635200714}
-  - component: {fileID: 635200713}
-  - component: {fileID: 635200715}
-  m_Layer: 0
-  m_Name: PathFindingManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &635200713
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 635200712}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b53b9cef61f8de4698450f3ca9c1071, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Grid
-  unwalkableMask:
-    serializedVersion: 2
-    m_Bits: 256
-  gridWorldSize: {x: 20, y: 13}
-  nodeRadius: 0.4
---- !u!4 &635200714
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 635200712}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &635200715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 635200712}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b867332e4f9753848bfb02151eb9708e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PathFindingManager
-  player: {fileID: 202414979}
-  target: {fileID: 1113774232}
 --- !u!1 &698149235
 GameObject:
   m_ObjectHideFlags: 0
@@ -882,6 +817,7 @@ GameObject:
   - component: {fileID: 1113774231}
   - component: {fileID: 1113774230}
   - component: {fileID: 1113774229}
+  - component: {fileID: 1113774233}
   m_Layer: 0
   m_Name: Target
   m_TagString: Untagged
@@ -943,7 +879,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1113774228}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -1030,12 +966,33 @@ Transform:
   m_GameObject: {fileID: 1113774228}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.59, y: 3.72, z: 0}
+  m_LocalPosition: {x: 7.03, y: 2.34, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1113774233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1113774228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed74c9944f3b48c47a04ebe33aed3a79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AStarAgent
+  speed: 1
+  pathUpdateInterval: 0.5
+  awarenessRadius: 6
+  loseTargetRadius: 8
+  wallMask:
+    serializedVersion: 2
+    m_Bits: 256
+  targetTag: Player
+  showGizmos: 1
 --- !u!1 &1128748708
 GameObject:
   m_ObjectHideFlags: 0
@@ -1588,6 +1545,56 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &1925241807
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1925241809}
+  - component: {fileID: 1925241808}
+  m_Layer: 0
+  m_Name: Astar_Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1925241808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925241807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b53b9cef61f8de4698450f3ca9c1071, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyPathGrid
+  is2D: 1
+  unwalkableMask:
+    serializedVersion: 2
+    m_Bits: 256
+  gridWorldSize: {x: 20.8, y: 13.3}
+  nodeRadius: 0.7
+--- !u!4 &1925241809
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925241807}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.11, y: 0.02566, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1964852424
 GameObject:
   m_ObjectHideFlags: 0
@@ -1879,5 +1886,5 @@ SceneRoots:
   - {fileID: 1623641064}
   - {fileID: 202414979}
   - {fileID: 1113774232}
-  - {fileID: 635200714}
   - {fileID: 730150716}
+  - {fileID: 1925241809}
