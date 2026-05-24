@@ -27,16 +27,16 @@ public class Obstacle : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         rb.AddForce(Vector3.left * Time.deltaTime * 6);
         if (transform.position.x < -22f || transform.position.x > 22f || transform.position.y < -12f || transform.position.y > 12f)
         {
             Destroy(gameObject);
         }
-        if(rb.linearVelocity.magnitude>maxSpd)
+        if (rb.linearVelocity.magnitude > maxSpd)
         {
-            rb.linearVelocity=rb.linearVelocity.normalized*maxSpd;
+            rb.linearVelocity = rb.linearVelocity.normalized * maxSpd;
         }
     }
     void OnCollisionEnter2D(Collision2D collision)
