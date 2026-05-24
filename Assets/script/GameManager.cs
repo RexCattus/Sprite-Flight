@@ -11,7 +11,9 @@ public class GameManager : MonoBehaviour
     public float timeSpawn = 1.5f;
     public float gioihanY = 6.5f;
     public float vitrispawnX = 20f;
-    private float timeCount = 0f;
+    public float fuelTimeSpawn = 4.5f; // Tần suất xuất hiện bình xăng (khoảng 4.5s, ít hơn thiên thạch)
+    private float rockTimeCount = 0f;
+    private float fuelTimeCount = 0f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,15 +25,17 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timeCount += Time.deltaTime;
-        if (timeCount >= timeSpawn)
+        rockTimeCount += Time.deltaTime;
+        if (rockTimeCount >= timeSpawn)
         {
-            timeCount = 0f;
+            rockTimeCount = 0f;
             taoRock();
         }
-        if (timeCount >= timeSpawn * 2f)
+
+        fuelTimeCount += Time.deltaTime;
+        if (fuelTimeCount >= fuelTimeSpawn)
         {
-            timeCount = 0f;
+            fuelTimeCount = 0f;
             FuelSpawn();
         }
     }
