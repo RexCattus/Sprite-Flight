@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Fuel
+  - Wall
   layers:
   - Default
   - TransparentFX

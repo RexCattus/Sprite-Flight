@@ -22,12 +22,6 @@ public class PlayerController : MonoBehaviour
     public GameManager gameManager; // Tham chiếu đến GameManager để cập nhật điểm số
     public AudioSource EngineSound;
 
-    [Header("Cai đặt Giới Hạn Di Chuyển")]
-    private float minX = -12f;
-    private float maxX = 14f;
-    private float minY = -7.5f;
-    private float maxY = 7.5f;
-
     [Header("Cài đặt Nhiên Liệu")]
     public float maxFuel = 100f;
     public float currentFuel = 100f;
@@ -37,6 +31,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.freezeRotation = true; // Khóa xoay vật lý để tránh bị xoay mòng mòng khi đập vào tường
         scoreText = UIdoc.rootVisualElement.Q<Label>("ScoreLabel"); // Tìm Label trong UI Document
         Restart = UIdoc.rootVisualElement.Q<Button>("Restart_Button"); // Tìm Button trong UI Document
         Restart.style.display = DisplayStyle.None; // Ẩn nút Restart
@@ -50,10 +45,19 @@ public class PlayerController : MonoBehaviour
         UpdateScore();
     }
 
+    void LateUpdate()
+    {
+        // Cố định lại vận tốc tối đa một lần nữa ngay sau khi hệ thống Vật lý (Physics) tính toán xong.
+        // Điều này sẽ triệt tiêu hoàn toàn các lực đẩy khổng lồ sinh ra do lỗi kẹt Collider.
+        if (rb != null && rb.linearVelocity.magnitude > maxSpeed)
+        {
+            rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
+        }
+    }
+
     void FixedUpdate()
     {
         MovePlayer();
-        gioihan();
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -86,8 +90,9 @@ public class PlayerController : MonoBehaviour
             {
                 // Xoay mượt mà phi thuyền về hướng chuột bằng Slerp
                 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
-                Quaternion targetRotation = Quaternion.Euler(0, 0, angle);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 15f);
+                float currentAngle = rb.rotation;
+                float newAngle = Mathf.LerpAngle(currentAngle, angle, Time.deltaTime * 15f);
+                rb.MoveRotation(newAngle);
 
                 rb.AddForce(direction.normalized * speed);
 
@@ -141,23 +146,6 @@ public class PlayerController : MonoBehaviour
     private void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Tải lại scene hiện tại để bắt đầu lại trò chơi
-    }
-    private void gioihan()
-    {
-        Vector2 vitrihientai = rb.position;
-        float clampedX = Mathf.Clamp(vitrihientai.x, minX, maxX);
-        float clampedY = Mathf.Clamp(vitrihientai.y, minY, maxY);
-
-        if (vitrihientai.x != clampedX || vitrihientai.y != clampedY)
-        {
-            rb.position = new Vector2(clampedX, clampedY);
-
-            // Triệt tiêu vận tốc theo chiều chạm biên để tránh rung lắc
-            Vector2 vel = rb.linearVelocity;
-            if (vitrihientai.x != clampedX) vel.x = 0f;
-            if (vitrihientai.y != clampedY) vel.y = 0f;
-            rb.linearVelocity = vel;
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

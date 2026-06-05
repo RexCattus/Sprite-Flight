@@ -15,6 +15,20 @@ public class Fuel : MonoBehaviour
             rb.gravityScale = 0f;
             rb.angularVelocity = Random.Range(-spinSpeed, spinSpeed);
         }
+
+        // Bỏ qua va chạm với các object có tag "wall" hoặc "Wall"
+        Collider2D myCollider = GetComponent<Collider2D>();
+        if (myCollider != null)
+        {
+            Collider2D[] allColliders = Object.FindObjectsByType<Collider2D>(FindObjectsSortMode.None);
+            foreach (Collider2D col in allColliders)
+            {
+                if (col.gameObject.tag == "Wall" || col.gameObject.tag == "wall")
+                {
+                    Physics2D.IgnoreCollision(myCollider, col, true);
+                }
+            }
+        }
     }
 
     void FixedUpdate()
