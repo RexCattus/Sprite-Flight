@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    public float minSize = 1f;
-    public float maxSize = 3f;
+    public float minSize = 5f;
+    public float maxSize = 10f;
     public float minSpd = 100f;
     public float maxSpd = 300f;
     public float maxspinspd = 10f;
