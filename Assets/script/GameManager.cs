@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public float thoigianmax = 0f;
@@ -38,6 +39,7 @@ public class GameManager : MonoBehaviour
             fuelTimeCount = 0f;
             FuelSpawn();
         }
+
     }
     public void end_work(float thoigian)
     {

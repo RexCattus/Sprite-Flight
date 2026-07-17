@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     private float elapsedTime = 0f;
     private float score = 0f;
     public float scoreMutiplier = 10f;
-    public GameObject flameEffect;
+    public ParticleSystem flameEffect;
     public GameObject ExhaustEffect;
     public UIDocument UIdoc; // Tham chiếu đến UI Document chứa Text để hiển thị điểm số
     private Label scoreText;
@@ -37,6 +37,9 @@ public class PlayerController : MonoBehaviour
         Restart.style.display = DisplayStyle.None; // Ẩn nút Restart
         Restart.clicked += RestartGame; // Gán sự kiện click cho nút Restart
         fuelFill = UIdoc.rootVisualElement.Q<VisualElement>("Fuel_Fill");
+
+        // Đảm bảo Particle System luôn chạy ngầm
+        if (flameEffect != null) flameEffect.Play();
     }
 
     // Update is called once per frame
@@ -101,7 +104,11 @@ public class PlayerController : MonoBehaviour
                     rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
                 }
 
-                flameEffect.SetActive(true);
+                if (flameEffect != null)
+                {
+                    var em = flameEffect.emission;
+                    em.enabled = true; // Bật van xả khói
+                }
                 ExhaustEffect.SetActive(true);
 
                 // Bật âm thanh nếu nó chưa chạy
@@ -118,7 +125,11 @@ public class PlayerController : MonoBehaviour
             {
                 // Giảm tốc mượt mà khi ở sát vị trí chuột để điều khiển chính xác
                 rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, Vector2.zero, Time.deltaTime * 8f);
-                flameEffect.SetActive(false);
+                if (flameEffect != null)
+                {
+                    var em = flameEffect.emission;
+                    em.enabled = false; // Tắt van xả khói
+                }
                 ExhaustEffect.SetActive(false);
 
                 if (EngineSound.isPlaying == true)
@@ -133,7 +144,11 @@ public class PlayerController : MonoBehaviour
             // Hãm phanh mượt mà trong không gian
             rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, Vector2.zero, Time.deltaTime * 2f);
 
-            flameEffect.SetActive(false);
+            if (flameEffect != null)
+            {
+                var em = flameEffect.emission;
+                em.enabled = false; // Tắt van xả khói
+            }
             ExhaustEffect.SetActive(false);
 
             // Tắt âm thanh
