@@ -1,6 +1,6 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:VisualElement style="flex-grow: 1; background-color: rgba(197, 197, 197, 0.41);">
-        <ui:Button text="Resume" name="Resume" style="font-size: 65px; position: absolute; align-self: center; margin-top: 406px;"/>
-        <ui:Button text="Quit to menu" name="Menu" style="font-size: 65px; position: absolute; align-self: center; margin-top: 561px;"/>
+        <ui:Button text="Resume" name="Resume" style="font-size: 65px; position: absolute; align-self: center; margin-top: 406px; background-image: url(&quot;project://database/Assets/Image/UI.png?fileID=-1557013538026691241&amp;guid=f27a6717221155a48a41f56eead20c69&amp;type=3#UI_0&quot;);"/>
+        <ui:Button text="Quit to menu" name="Menu" style="font-size: 65px; position: absolute; align-self: center; margin-top: 561px; background-image: url(&quot;project://database/Assets/Image/UI.png?fileID=-1557013538026691241&amp;guid=f27a6717221155a48a41f56eead20c69&amp;type=3#UI_0&quot;);"/>
     </ui:VisualElement>
 </ui:UXML>
