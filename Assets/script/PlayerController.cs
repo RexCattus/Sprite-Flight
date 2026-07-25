@@ -4,6 +4,7 @@ using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using System.Runtime.CompilerServices;
+using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class PlayerController : MonoBehaviour
     private Label scoreText;
     private Button Restart;
     public GameObject Ammo;
+    public GameObject Shield;
 
     [Header("Fuel System")]
     public float maxFuel = 100f;
@@ -74,10 +76,26 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
+            if (Shield.activeSelf)
+            {
+                if (other.gameObject.CompareTag("Enemy"))
+                {
+                Destroy(other.gameObject);
+                }
+            }
+            else 
+            {
             Destroy(gameObject);
-            Instantiate(explosionEffect, transform.position, transform.rotation); // Hiệu ứng nổ khi va chạm với Enemy
-            Restart.style.display = DisplayStyle.Flex; // Hiển thị nút Restart
-            gameManager.end_work(score); // Gọi phương thức kết thúc trò chơi và truyền điểm số hiện tại
+            Instantiate(explosionEffect, transform.position, transform.rotation);
+            Restart.style.display = DisplayStyle.Flex;
+            gameManager.end_work(score);
+            }
+        }
+        else if (other.gameObject.CompareTag("Shield"))
+        {
+            // Bật khiên trong 10 giây
+            StartCoroutine(ActivateShield(10f));
+            Destroy(other.gameObject);
         }
     }
     private void UpdateScore()
@@ -196,5 +214,11 @@ public class PlayerController : MonoBehaviour
             currentFuel -= 10f;
             UpdateFuelUI();
         }
+    }
+    private IEnumerator ActivateShield(float duration)
+    {
+        Shield.SetActive(true);
+        yield return new WaitForSeconds(duration);
+        Shield.SetActive(false);
     }
 }

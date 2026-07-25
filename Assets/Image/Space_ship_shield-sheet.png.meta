@@ -1,37 +1,19 @@
 fileFormatVersion: 2
-guid: 6968cf99de576e94daab455f62469ae7
+guid: 72137e4d4f702db468108c3d85219677
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4776386817261914097
-    second: Space_ship_thruster_0
+      213: -1766908651676804060
+    second: Space_ship_shield-sheet_0
   - first:
-      213: 5673310961258558485
-    second: Space_ship_thruster_1
+      213: 8519744515044964067
+    second: Space_ship_shield-sheet_1
   - first:
-      213: 5377756585887824082
-    second: Space_ship_thruster_2
+      213: -1535970037677452948
+    second: Space_ship_shield-sheet_2
   - first:
-      213: 5226611588147803966
-    second: Space_ship_thruster_3
-  - first:
-      213: -6649599720005929319
-    second: Space_ship_thruster_4
-  - first:
-      213: 1903049909192095004
-    second: Space_ship_thruster_5
-  - first:
-      213: 1371490043735524176
-    second: Space_ship_thruster_6
-  - first:
-      213: -7243619731348289894
-    second: Space_ship_thruster_7
-  - first:
-      213: 6172313862187600737
-    second: Space_ship_thruster_8
-  - first:
-      213: 3794426620544923901
-    second: Space_ship_thruster_9
+      213: 1407547849557487650
+    second: Space_ship_shield-sheet_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -78,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -128,7 +110,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -140,13 +122,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Space_ship_thruster_0
+      name: Space_ship_shield-sheet_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 176
-        height: 64
+        x: 16
+        y: 13
+        width: 63
+        height: 62
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1f741c00182294240800000000000000
-      internalID: 4776386817261914097
+      spriteID: 42c5d3a51fdaa77e0800000000000000
+      internalID: -1766908651676804060
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Space_ship_thruster_1
+      name: Space_ship_shield-sheet_1
       rect:
         serializedVersion: 2
-        x: 176
-        y: 0
-        width: 176
-        height: 64
+        x: 109
+        y: 13
+        width: 63
+        height: 62
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -177,20 +159,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5147522c246abbe40800000000000000
-      internalID: 5673310961258558485
+      spriteID: 3e676543f763c3670800000000000000
+      internalID: 8519744515044964067
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Space_ship_thruster_2
+      name: Space_ship_shield-sheet_2
       rect:
         serializedVersion: 2
-        x: 352
-        y: 0
-        width: 176
-        height: 64
+        x: 202
+        y: 13
+        width: 63
+        height: 62
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -199,20 +181,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2d87c5e4f11a1aa40800000000000000
-      internalID: 5377756585887824082
+      spriteID: c61979e73632faae0800000000000000
+      internalID: -1535970037677452948
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Space_ship_thruster_3
+      name: Space_ship_shield-sheet_3
       rect:
         serializedVersion: 2
-        x: 528
-        y: 0
-        width: 176
-        height: 64
+        x: 295
+        y: 13
+        width: 63
+        height: 62
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,30 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e377d723c87a88840800000000000000
-      internalID: 5226611588147803966
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Space_ship_thruster_4
-      rect:
-        serializedVersion: 2
-        x: 704
-        y: 0
-        width: 176
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 87ae0818f9e0b0248a88759503941bec
-      internalID: 699025127
+      spriteID: 2203d39cf4d988310800000000000000
+      internalID: 1407547849557487650
       vertices: []
       indices: 
       edges: []
@@ -253,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 8baa68fc305d80f458c36d0bc0c5d202
+    spriteID: 5055da3eff2374b4287e5573641158eb
     internalID: 0
     vertices: []
     indices: 
@@ -263,13 +223,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":5.0,"y":1.0},"gridSpriteSize":{"x":176.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Space_ship_thruster_0: 4776386817261914097
-      Space_ship_thruster_1: 5673310961258558485
-      Space_ship_thruster_2: 5377756585887824082
-      Space_ship_thruster_3: 5226611588147803966
-      Space_ship_thruster_4: 699025127
+      Space_ship_shield-sheet_0: -1766908651676804060
+      Space_ship_shield-sheet_1: 8519744515044964067
+      Space_ship_shield-sheet_2: -1535970037677452948
+      Space_ship_shield-sheet_3: 1407547849557487650
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

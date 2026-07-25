@@ -8,6 +8,7 @@ TagManager:
   - Fuel
   - Wall
   - Bullet
+  - Shield
   layers:
   - Default
   - TransparentFX

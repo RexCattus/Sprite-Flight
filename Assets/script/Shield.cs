@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Fuel : MonoBehaviour
+public class Shield : MonoBehaviour
 {
     [Header("Cài đặt Di Chuyển")]
     public float speed = 3f;
