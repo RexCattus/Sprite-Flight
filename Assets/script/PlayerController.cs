@@ -7,22 +7,26 @@ using System.Runtime.CompilerServices;
 
 public class PlayerController : MonoBehaviour
 {
+    Rigidbody2D rb;
+    public float score = 0f;
+
+    [Header ("change settings")]
     public float speed = 1f;
     public float maxSpeed = 5f;
-    Rigidbody2D rb;
-    private float elapsedTime = 0f;
-    private float score = 0f;
-    public float scoreMutiplier = 10f;
+    public float scoreMutiplier = 1f;
+
+    [Header("References")]
     public ParticleSystem flameEffect;
     public GameObject ExhaustEffect;
-    public UIDocument UIdoc; // Tham chiếu đến UI Document chứa Text để hiển thị điểm số
-    private Label scoreText;
-    private Button Restart;
     public GameObject explosionEffect; // Prefab hiệu ứng nổ
     public GameManager gameManager; // Tham chiếu đến GameManager để cập nhật điểm số
     public AudioSource EngineSound;
+    public UIDocument UIdoc; // Tham chiếu đến UI Document chứa Text để hiển thị điểm số
+    private Label scoreText;
+    private Button Restart;
+    public GameObject Ammo;
 
-    [Header("Cài đặt Nhiên Liệu")]
+    [Header("Fuel System")]
     public float maxFuel = 100f;
     public float currentFuel = 100f;
     private VisualElement fuelFill;
@@ -46,11 +50,15 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         UpdateScore();
+        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        {
+            ShootAmmo();
+        }
     }
 
     void LateUpdate()
     {
-        // Cố định lại vận tốc tối đa một lần nữa ngay sau khi hệ thống Vật lý (Physics) tính toán xong.
+        // Cố định lại vận tốc tối đa một lần nữa ngay sau khi hệ thống Vật lý tính toán xong.
         // Điều này sẽ triệt tiêu hoàn toàn các lực đẩy khổng lồ sinh ra do lỗi kẹt Collider.
         if (rb != null && rb.linearVelocity.magnitude > maxSpeed)
         {
@@ -74,9 +82,8 @@ public class PlayerController : MonoBehaviour
     }
     private void UpdateScore()
     {
-        elapsedTime += Time.deltaTime;
-        score = Mathf.FloorToInt(elapsedTime * scoreMutiplier);
-        scoreText.text = "Score: " + score; //Cập nhật điểm số trên UI
+        score += Time.deltaTime * scoreMutiplier;
+        scoreText.text = "Score: " + Mathf.FloorToInt(score); //Cập nhật điểm số trên UI
     }
     private void MovePlayer()
     {
@@ -179,6 +186,15 @@ public class PlayerController : MonoBehaviour
         if (fuelFill != null)
         {
             fuelFill.style.height = new Length(FuelPercentage, LengthUnit.Percent);
+        }
+    }
+    private void ShootAmmo()
+    {
+        if (Ammo != null)
+        {
+            Instantiate(Ammo, transform.position, transform.rotation);
+            currentFuel -= 10f;
+            UpdateFuelUI();
         }
     }
 }
