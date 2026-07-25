@@ -8,13 +8,16 @@ public class GameManager : MonoBehaviour
     public UIDocument UIdoc; // Tham chiếu đến UI Document chứa Text để hiển thị điểm số
     private Label MaxScore;
     public GameObject rock;
+    public GameObject Shield;
     public GameObject Fuel;
     public float timeSpawn = 1.5f;
     public float gioihanY = 6.5f;
     public float vitrispawnX = 20f;
-    public float fuelTimeSpawn = 4.5f; // Tần suất xuất hiện bình xăng (khoảng 4.5s, ít hơn thiên thạch)
+    public float fuelTimeSpawn = 4.5f; // Tần suất xuất hiện bình xăng
     private float rockTimeCount = 0f;
     private float fuelTimeCount = 0f;
+    private float shieldTimeCount = 0f;
+    private float shieldTimeSpawn = 10f; // Tần suất xuất hiện khiên
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -40,6 +43,12 @@ public class GameManager : MonoBehaviour
             FuelSpawn();
         }
 
+        shieldTimeCount += Time.deltaTime;
+        if (shieldTimeCount >= shieldTimeSpawn)
+        {
+            shieldTimeCount = 0f;
+            ShieldSpawn();
+        }
     }
     public void end_work(float thoigian)
     {
@@ -67,5 +76,11 @@ public class GameManager : MonoBehaviour
         float y = Random.Range(-gioihanY, gioihanY);
         Vector3 vitriSpawn = new Vector3(vitrispawnX, y, 0f);
         Instantiate(Fuel, vitriSpawn, Quaternion.identity);
+    }
+    void ShieldSpawn()
+    {
+        float y = Random.Range(-gioihanY, gioihanY);
+        Vector3 vitriSpawn = new Vector3(vitrispawnX, y, 0f);
+        Instantiate(Shield, vitriSpawn, Quaternion.identity);
     }
 }
