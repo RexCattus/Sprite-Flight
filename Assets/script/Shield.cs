@@ -5,16 +5,9 @@ public class Shield : MonoBehaviour
     [Header("Cài đặt Di Chuyển")]
     public float speed = 3f;
     public float spinSpeed = 30f;
-    private Rigidbody2D rb;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        if (rb != null)
-        {
-            rb.gravityScale = 0f;
-            rb.angularVelocity = Random.Range(-spinSpeed, spinSpeed);
-        }
 
         // Bỏ qua va chạm với các object có tag "wall" hoặc "Wall"
         Collider2D myCollider = GetComponent<Collider2D>();
@@ -33,20 +26,13 @@ public class Shield : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Di chuyển sang trái như thiên thạch
-        if (rb != null)
-        {
-            rb.linearVelocity = new Vector2(-speed, rb.linearVelocity.y);
-        }
-        else
-        {
-            transform.Translate(Vector3.left * speed * Time.deltaTime, Space.World);
-        }
-
+        transform.Translate(Vector3.left * speed * Time.deltaTime, Space.World);
+        transform.Rotate(Vector3.forward * spinSpeed * Time.deltaTime);
         // Tự hủy khi vượt ngoài giới hạn màn hình
         if (transform.position.x < -22f || transform.position.x > 22f || transform.position.y < -12f || transform.position.y > 12f)
         {
             Destroy(gameObject);
         }
+
     }
 }

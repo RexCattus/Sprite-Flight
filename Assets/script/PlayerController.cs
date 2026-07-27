@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     private Button Restart;
     public GameObject Ammo;
     public GameObject Shield;
+    public Transform ShootLocation;
 
     [Header("Fuel System")]
     public float maxFuel = 100f;
@@ -37,7 +38,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.freezeRotation = true; // Khóa xoay vật lý để tránh bị xoay mòng mòng khi đập vào tường
+        rb.freezeRotation = true; // tránh bị xoay khi đập vào tường
         scoreText = UIdoc.rootVisualElement.Q<Label>("ScoreLabel"); // Tìm Label trong UI Document
         Restart = UIdoc.rootVisualElement.Q<Button>("Restart_Button"); // Tìm Button trong UI Document
         Restart.style.display = DisplayStyle.None; // Ẩn nút Restart
@@ -61,7 +62,7 @@ public class PlayerController : MonoBehaviour
     void LateUpdate()
     {
         // Cố định lại vận tốc tối đa một lần nữa ngay sau khi hệ thống Vật lý tính toán xong.
-        // Điều này sẽ triệt tiêu hoàn toàn các lực đẩy khổng lồ sinh ra do lỗi kẹt Collider.
+        // Giúp triệt tiêu các lực đẩy sinh ra do lỗi kẹt Collider.
         if (rb != null && rb.linearVelocity.magnitude > maxSpeed)
         {
             rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
@@ -105,7 +106,7 @@ public class PlayerController : MonoBehaviour
     }
     private void MovePlayer()
     {
-        // 1. NẾU ĐANG GIỮ CHUỘT
+        // Nếu đang giữ chuột
         if (Mouse.current.leftButton.isPressed && currentFuel > 0)
         {
             Vector3 mousepos = Camera.main.ScreenToWorldPoint(Mouse.current.position.value);
@@ -116,7 +117,7 @@ public class PlayerController : MonoBehaviour
             // Chỉ di chuyển và quay nếu chuột không nằm quá sát phi thuyền
             if (distance > 0.4f)
             {
-                // Xoay mượt mà phi thuyền về hướng chuột bằng Slerp
+                // Xoay phi thuyền về hướng chuột bằng Slerp
                 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
                 float currentAngle = rb.rotation;
                 float newAngle = Mathf.LerpAngle(currentAngle, angle, Time.deltaTime * 15f);
@@ -136,7 +137,6 @@ public class PlayerController : MonoBehaviour
                 }
                 ExhaustEffect.SetActive(true);
 
-                // Bật âm thanh nếu nó chưa chạy
                 if (EngineSound.isPlaying == false)
                 {
                     EngineSound.Play();
@@ -148,7 +148,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                // Giảm tốc mượt mà khi ở sát vị trí chuột để điều khiển chính xác
+                // Giảm tốc khi ở sát vị trí chuột
                 rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, Vector2.zero, Time.deltaTime * 8f);
                 if (flameEffect != null)
                 {
@@ -163,7 +163,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-        // 2. NẾU KHÔNG GIỮ CHUỘT (hoặc vừa nhả ra)
+        // nếu ko giữ chuột
         else
         {
             // Hãm phanh mượt mà trong không gian
@@ -192,7 +192,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Fuel"))
         {
-            currentFuel = Mathf.Min(currentFuel + 25f, maxFuel);
+            currentFuel = Mathf.Min(currentFuel + 35f, maxFuel);
             UpdateFuelUI();
             Destroy(other.gameObject);
         }
@@ -208,9 +208,9 @@ public class PlayerController : MonoBehaviour
     }
     private void ShootAmmo()
     {
-        if (Ammo != null)
+        if (Ammo != null && currentFuel >= 10f)
         {
-            Instantiate(Ammo, transform.position, transform.rotation);
+            Instantiate(Ammo, ShootLocation.position, transform.rotation);
             currentFuel -= 10f;
             UpdateFuelUI();
         }
