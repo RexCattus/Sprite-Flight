@@ -1,0 +1,53 @@
+:root {
+}
+
+.Btn_pixel {
+}
+
+#Resume:active {
+    background-image: url("project://database/Assets/Image/UI_Buttons.png?fileID=5443615423995280755&guid=5be432ab06c4f654c9ae98f4bfc0a00c&type=3#UI_Buttons_7");
+}
+
+#Resume:hover {
+    background-image: url("project://database/Assets/Image/UI_Buttons.png?fileID=5802799835174370958&guid=5be432ab06c4f654c9ae98f4bfc0a00c&type=3#UI_Buttons_12");
+}
+
+#Quit:active {
+    background-image: url("project://database/Assets/Image/UI_Buttons.png?fileID=296944135989094092&guid=5be432ab06c4f654c9ae98f4bfc0a00c&type=3#UI_Buttons_9");
+}
+
+#Quit:hover {
+    background-image: url("project://database/Assets/Image/UI_Buttons.png?fileID=-6187156380514981872&guid=5be432ab06c4f654c9ae98f4bfc0a00c&type=3#UI_Buttons_14");
+}
+
+#Play:active {
+    background-image: url("project://database/Assets/Image/UI_Buttons.png?fileID=-9075372253054032488&guid=5be432ab06c4f654c9ae98f4bfc0a00c&type=3#UI_Buttons_5");
+}
+
+#Play:hover {
+    background-image: url("project://database/Assets/Image/UI_Buttons.png?fileID=-6730508959240759184&guid=5be432ab06c4f654c9ae98f4bfc0a00c&type=3#UI_Buttons_10");
+}
+
+#Restart:active {
+    background-image: url("project://database/Assets/Image/UI_Buttons.png?fileID=-7257974199788926244&guid=5be432ab06c4f654c9ae98f4bfc0a00c&type=3#UI_Buttons_8");
+}
+
+#Restart:hover {
+    background-image: url("project://database/Assets/Image/UI_Buttons.png?fileID=9160267285729102424&guid=5be432ab06c4f654c9ae98f4bfc0a00c&type=3#UI_Buttons_13");
+}
+
+#Play {
+    background-image: url("project://database/Assets/Image/UI_Buttons.png?fileID=-349501769233167598&guid=5be432ab06c4f654c9ae98f4bfc0a00c&type=3#UI_Buttons_0");
+}
+
+#Quit {
+    background-image: url("project://database/Assets/Image/UI_Buttons.png?fileID=-5942230873519039519&guid=5be432ab06c4f654c9ae98f4bfc0a00c&type=3#UI_Buttons_4");
+}
+
+#Resume {
+    background-image: url("project://database/Assets/Image/UI_Buttons.png?fileID=-3302942199910501919&guid=5be432ab06c4f654c9ae98f4bfc0a00c&type=3#UI_Buttons_2");
+}
+
+#Restart {
+    background-image: url("project://database/Assets/Image/UI_Buttons.png?fileID=-8388676363910138018&guid=5be432ab06c4f654c9ae98f4bfc0a00c&type=3#UI_Buttons_3");
+}

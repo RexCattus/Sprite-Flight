@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 
     public UIDocument UIdoc; // Tham chiếu đến UI Document chứa Text để hiển thị điểm số
     private Label MaxScore;
-    public GameObject rock;
+    public GameObject[] rock;
     public GameObject Shield;
     public GameObject Fuel;
     public float timeSpawn = 1.5f;
@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
     {
         float y = Random.Range(-gioihanY, gioihanY);
         Vector3 vitriSpawn = new Vector3(vitrispawnX, y, 0f);
-        Instantiate(rock, vitriSpawn, Quaternion.identity);
+        Instantiate(rock[Random.Range(0, rock.Length)], vitriSpawn, Quaternion.identity);
     }
     void FuelSpawn()
     {

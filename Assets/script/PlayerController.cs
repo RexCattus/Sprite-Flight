@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.freezeRotation = true; // tránh bị xoay khi đập vào tường
         scoreText = UIdoc.rootVisualElement.Q<Label>("ScoreLabel"); // Tìm Label trong UI Document
-        Restart = UIdoc.rootVisualElement.Q<Button>("Restart_Button"); // Tìm Button trong UI Document
+        Restart = UIdoc.rootVisualElement.Q<Button>("Restart"); // Tìm Button trong UI Document
         Restart.style.display = DisplayStyle.None; // Ẩn nút Restart
         Restart.clicked += RestartGame; // Gán sự kiện click cho nút Restart
         fuelFill = UIdoc.rootVisualElement.Q<VisualElement>("Fuel_Fill");

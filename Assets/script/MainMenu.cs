@@ -14,21 +14,16 @@ public class MainMenu : MonoBehaviour
             uiDoc = GetComponent<UIDocument>();
         }
 
-        // Tìm tất cả các nút bấm trong giao diện
-        var buttons = uiDoc.rootVisualElement.Query<Button>().ToList();
-        
-        foreach (var btn in buttons)
+        Button playBtn = uiDoc.rootVisualElement.Q<Button>("Play");
+        if (playBtn != null)
         {
-            // Bắt sự kiện cho nút Play
-            if (btn.text == "Play")
-            {
-                btn.clicked += PlayGame;
-            }
-            // Bắt sự kiện cho nút Quit
-            else if (btn.text == "Quit")
-            {
-                btn.clicked += QuitGame;
-            }
+            playBtn.clicked += PlayGame;
+        }
+
+        Button quitBtn = uiDoc.rootVisualElement.Q<Button>("Quit");
+        if (quitBtn != null)
+        {
+            quitBtn.clicked += QuitGame;
         }
     }
 

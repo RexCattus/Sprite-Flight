@@ -150,7 +150,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   thoigianmax: 0
   UIdoc: {fileID: 324520330}
-  rock: {fileID: 518278763029479385, guid: 50e71c9bbf5f660488d24ace59a9c578, type: 3}
+  rock:
+  - {fileID: 518278763029479385, guid: 50e71c9bbf5f660488d24ace59a9c578, type: 3}
+  - {fileID: 6982814360722797370, guid: 76c9f42e8ba309f4f874d9b8c48822d0, type: 3}
+  - {fileID: 5692117577203125966, guid: 587a55a543e591a4698af8c671a643d4, type: 3}
   Shield: {fileID: 4583185382343433217, guid: 997d889c1ac5aa045acaebbf0c8542e8, type: 3}
   Fuel: {fileID: 1301042684615131262, guid: b3b82a61256575b4e9f7577c5fe6e9ca, type: 3}
   timeSpawn: 1.5

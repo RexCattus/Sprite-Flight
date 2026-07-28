@@ -15,7 +15,7 @@ public class PauseScript : MonoBehaviour
     {
         rootElement = Pausedoc.rootVisualElement;
         resume = rootElement.Q<Button>("Resume");
-        Quit = rootElement.Q<Button>("Menu");
+        Quit = rootElement.Q<Button>("Quit");
         resume.clicked += resumeGame;
         Quit.clicked += QuitGame;
         rootElement.style.display = DisplayStyle.None;
