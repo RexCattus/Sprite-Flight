@@ -4,6 +4,7 @@ public class Bullet : MonoBehaviour
 {
     private float speed = 10f;
     PlayerController playerController;
+    [SerializeField] private AudioClip RockExplosionClip;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,9 +21,18 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Destroy(collision.gameObject);
-            Destroy(gameObject);
             playerController.score += 10;
+            
+            // Phát âm thanh nổ ngay tại vị trí Camera để nghe rõ nhất, trước khi Đạn bị hủy
+            if (RockExplosionClip != null)
+            {
+                AudioSource.PlayClipAtPoint(RockExplosionClip, Camera.main.transform.position);
+            }
+
+            collision.gameObject.GetComponent<Obstacle>().BreakBigRock();
+            
+            Destroy(collision.gameObject);
+            Destroy(gameObject); // Hủy đạn sau cùng
         }
     }
 }

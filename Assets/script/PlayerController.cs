@@ -21,13 +21,18 @@ public class PlayerController : MonoBehaviour
     public GameObject ExhaustEffect;
     public GameObject explosionEffect; // Prefab hiệu ứng nổ
     public GameManager gameManager; // Tham chiếu đến GameManager để cập nhật điểm số
-    public AudioSource EngineSound;
     public UIDocument UIdoc; // Tham chiếu đến UI Document chứa Text để hiển thị điểm số
     private Label scoreText;
     private Button Restart;
     public GameObject Ammo;
     public GameObject Shield;
     public Transform ShootLocation;
+
+    [Header("Audio")]
+    public AudioSource EngineSound;
+    public AudioSource SFXSound;
+    public AudioClip ShootSound;
+    public AudioClip ShieldSound;
 
     [Header("Fuel System")]
     public float maxFuel = 100f;
@@ -82,6 +87,7 @@ public class PlayerController : MonoBehaviour
                 if (other.gameObject.CompareTag("Enemy"))
                 {
                 Destroy(other.gameObject);
+                other.gameObject.GetComponent<Obstacle>().BreakBigRock();
                 }
             }
             else 
@@ -96,6 +102,7 @@ public class PlayerController : MonoBehaviour
         {
             // Bật khiên trong 10 giây
             StartCoroutine(ActivateShield(10f));
+            SFXSound.PlayOneShot(ShieldSound);
             Destroy(other.gameObject);
         }
     }
@@ -213,6 +220,7 @@ public class PlayerController : MonoBehaviour
             Instantiate(Ammo, ShootLocation.position, transform.rotation);
             currentFuel -= 10f;
             UpdateFuelUI();
+            SFXSound.PlayOneShot(ShootSound);
         }
     }
     private IEnumerator ActivateShield(float duration)

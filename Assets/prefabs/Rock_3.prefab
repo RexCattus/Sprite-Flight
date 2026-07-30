@@ -128,7 +128,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.017431185, y: -0.010764152}
+  m_Offset: {x: 0.00710845, y: -0.00989446}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -138,7 +138,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.3550457, y: 0.26657534}
+  m_Size: {x: 0.87349343, y: 0.70054156}
   m_EdgeRadius: 0
 --- !u!50 &7352269280412185316
 Rigidbody2D:
@@ -185,3 +185,10 @@ MonoBehaviour:
   maxSpd: 300
   maxspinspd: 10
   explosionEffect: {fileID: 1123483977833261923, guid: 0df9b6f2509e6fc41a90808bfb411a8e, type: 3}
+  isBigRock: 1
+  smallRockPrefab:
+  - {fileID: 6982814360722797370, guid: 76c9f42e8ba309f4f874d9b8c48822d0, type: 3}
+  - {fileID: 518278763029479385, guid: 50e71c9bbf5f660488d24ace59a9c578, type: 3}
+  - {fileID: 518278763029479385, guid: 50e71c9bbf5f660488d24ace59a9c578, type: 3}
+  smallRockCount: 3
+  rockSplitForce: 200

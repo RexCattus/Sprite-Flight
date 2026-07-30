@@ -2,13 +2,22 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    public float minSize = 5f;
-    public float maxSize = 10f;
-    public float minSpd = 100f;
-    public float maxSpd = 300f;
-    public float maxspinspd = 10f;
+    [Header("Obstacle Settings")]
+    [SerializeField] private float minSize = 5f;
+    [SerializeField] private float maxSize = 10f;
+    [SerializeField] private float minSpd = 100f;
+    [SerializeField] private float maxSpd = 300f;
+    [SerializeField] private float maxspinspd = 10f;
 
-    public GameObject explosionEffect; // Prefab hiệu ứng nổ khi va chạm với Player
+    [Header("References")]
+    [SerializeField] private GameObject explosionEffect;
+
+    [Header("Big rock Settings")]
+    [SerializeField] private bool isBigRock = true;
+    [SerializeField] private GameObject[] smallRockPrefab;
+    [SerializeField] private int smallRockCount = 3;
+    [SerializeField] private float rockSplitForce = 200f;
+
     Rigidbody2D rb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,20 +33,6 @@ public class Obstacle : MonoBehaviour
 
         float randomspin = Random.Range(-maxspinspd, maxspinspd);
         rb.AddTorque(randomspin);
-
-        // Bỏ qua va chạm với các object có tag "wall" hoặc "Wall"
-        Collider2D myCollider = GetComponent<Collider2D>();
-        if (myCollider != null)
-        {
-            Collider2D[] allColliders = Object.FindObjectsByType<Collider2D>(FindObjectsSortMode.None);
-            foreach (Collider2D col in allColliders)
-            {
-                if (col.gameObject.tag == "Wall" || col.gameObject.tag == "wall")
-                {
-                    Physics2D.IgnoreCollision(myCollider, col, true);
-                }
-            }
-        }
     }
 
     // Update is called once per frame
@@ -58,5 +53,23 @@ public class Obstacle : MonoBehaviour
         Vector2 contactPoint = collision.GetContact(0).point;
         GameObject bounceEffect = Instantiate(explosionEffect, contactPoint, Quaternion.identity);
         Destroy(bounceEffect, 1f); // Hủy hiệu ứng sau 1 giây
+    }
+    public void BreakBigRock()
+    {
+        if (isBigRock && smallRockPrefab != null)
+        {
+            for (int i = 0; i < smallRockCount; i++)
+            {
+                GameObject smallRock = Instantiate(smallRockPrefab[Random.Range(0, smallRockPrefab.Length)], transform.position, Quaternion.identity);
+
+                Rigidbody2D smallRockRb = smallRock.GetComponent<Rigidbody2D>();
+                if (smallRockRb != null)
+                {
+                     Vector2 randomDir = Random.insideUnitCircle.normalized; // Tạo một hướng ngẫu nhiên
+                     smallRockRb.AddForce(randomDir * rockSplitForce);
+                }
+            }
+        }
+        Destroy(gameObject);
     }
 }
