@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     public float score = 0f;
 
-    [Header ("change settings")]
+    [Header("change settings")]
     public float speed = 1f;
     public float maxSpeed = 5f;
     public float scoreMutiplier = 1f;
@@ -86,24 +86,17 @@ public class PlayerController : MonoBehaviour
             {
                 if (other.gameObject.CompareTag("Enemy"))
                 {
-                Destroy(other.gameObject);
-                other.gameObject.GetComponent<Obstacle>().BreakBigRock();
+                    Destroy(other.gameObject);
+                    other.gameObject.GetComponent<Obstacle>().BreakBigRock();
                 }
             }
-            else 
+            else
             {
-            Destroy(gameObject);
-            Instantiate(explosionEffect, transform.position, transform.rotation);
-            Restart.style.display = DisplayStyle.Flex;
-            gameManager.end_work(score);
+                Destroy(gameObject);
+                Instantiate(explosionEffect, transform.position, transform.rotation);
+                Restart.style.display = DisplayStyle.Flex;
+                gameManager.end_work(score);
             }
-        }
-        else if (other.gameObject.CompareTag("Shield"))
-        {
-            // Bật khiên trong 10 giây
-            StartCoroutine(ActivateShield(10f));
-            SFXSound.PlayOneShot(ShieldSound);
-            Destroy(other.gameObject);
         }
     }
     private void UpdateScore()
@@ -201,6 +194,13 @@ public class PlayerController : MonoBehaviour
         {
             currentFuel = Mathf.Min(currentFuel + 35f, maxFuel);
             UpdateFuelUI();
+            Destroy(other.gameObject);
+        }
+        else if (other.gameObject.CompareTag("Shield"))
+        {
+            // Bật khiên trong 10 giây
+            StartCoroutine(ActivateShield(10f));
+            SFXSound.PlayOneShot(ShieldSound);
             Destroy(other.gameObject);
         }
     }
