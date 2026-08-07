@@ -35,7 +35,7 @@ public class MainMenu : MonoBehaviour
 
     private void QuitGame()
     {
-        Debug.Log("Đã bấm nút Quit! (Trong Editor sẽ không tắt, ra game thật mới tắt)");
+        Debug.Log("Đã bấm nút Quit!");
         Application.Quit();
     }
 }

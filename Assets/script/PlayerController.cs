@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     private Button Restart;
     public GameObject Ammo;
     public GameObject Shield;
+    private Coroutine shieldCoroutine;
     public Transform ShootLocation;
 
     [Header("Audio")]
@@ -99,6 +100,28 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Fuel"))
+        {
+            currentFuel = Mathf.Min(currentFuel + 35f, maxFuel);
+            UpdateFuelUI();
+            Destroy(other.gameObject);
+        }
+        else if (other.gameObject.CompareTag("Shield"))
+        {
+            // Bật khiên trong 10 giây
+            if (shieldCoroutine != null)
+            {
+                StopCoroutine(shieldCoroutine);
+            }
+            shieldCoroutine = StartCoroutine(ActivateShield(10f));
+            SFXSound.PlayOneShot(ShieldSound);
+            Destroy(other.gameObject);
+        }
+    }
+
     private void UpdateScore()
     {
         score += Time.deltaTime * scoreMutiplier;
@@ -186,23 +209,6 @@ public class PlayerController : MonoBehaviour
     private void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Tải lại scene hiện tại để bắt đầu lại trò chơi
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Fuel"))
-        {
-            currentFuel = Mathf.Min(currentFuel + 35f, maxFuel);
-            UpdateFuelUI();
-            Destroy(other.gameObject);
-        }
-        else if (other.gameObject.CompareTag("Shield"))
-        {
-            // Bật khiên trong 10 giây
-            StartCoroutine(ActivateShield(10f));
-            SFXSound.PlayOneShot(ShieldSound);
-            Destroy(other.gameObject);
-        }
     }
 
     private void UpdateFuelUI()

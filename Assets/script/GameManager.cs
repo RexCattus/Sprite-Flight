@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     {
         thoigianmax = PlayerPrefs.GetFloat("HighScore", 0f); // Lấy điểm cao nhất đã lưu, mặc định là 0 nếu chưa có
         MaxScore = UIdoc.rootVisualElement.Q<Label>("MaxScore");
-        end_work(thoigianmax); // Hiển thị điểm cao nhất trên UI khi bắt đầu trò chơi
+        MaxScore.text = "High Score: " + Mathf.FloorToInt(thoigianmax);
     }
 
     // Update is called once per frame
@@ -58,12 +58,18 @@ public class GameManager : MonoBehaviour
 
             PlayerPrefs.Save();
 
-            MaxScore.text = "New High Score: " + thoigian; // Cập nhật điểm cao nhất trên UI
+            MaxScore.text = "New High Score: " + Mathf.FloorToInt(thoigian); // Cập nhật điểm cao nhất trên UI
         }
         else
         {
-            MaxScore.text = "High Score: " + thoigianmax; // Hiển thị điểm cao nhất hiện tại trên UI    
+            MaxScore.text = "High Score: " + Mathf.FloorToInt(thoigianmax); // Hiển thị điểm cao nhất hiện tại trên UI    
         }
+        int earnedCoins = Mathf.FloorToInt(thoigian / 5);
+        int totalCoins = PlayerPrefs.GetInt("PlayerCoins", 0);
+        totalCoins += earnedCoins;
+        PlayerPrefs.SetInt("PlayerCoins", totalCoins);
+        PlayerPrefs.Save();
+        Debug.Log("So tien kiem dc la :" + earnedCoins);
     }
     void taoRock()
     {

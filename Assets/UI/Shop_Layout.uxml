@@ -1,0 +1,41 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Button text="Back" name="btnBack" style="position: absolute; font-size: 100px; top: 10px; left: 14px;"/>
+    <ui:Label text="Coins : 0&#10;" name="txtCoins" style="position: absolute; top: 16px; left: 1464px; font-size: 104px;"/>
+    <ui:ScrollView style="position: relative; height: 80%; width: 90%; top: 18%; left: 5%;">
+        <ui:VisualElement name="Ship1" style="flex-grow: 1; width: 90%; height: 650px; margin-bottom: 60px;">
+            <ui:Image name="Image" source="project://database/Assets/Image/Space_ship.png?fileID=5226336652717572053&amp;guid=e50600009b3b3de4a99281c76e21bc54&amp;type=3#Space_ship_0" style="background-image: url(&quot;project://database/Assets/Image/Score%20Board.png?fileID=2231240236419785014&amp;guid=139679b377055394fa823c61d4c43f1d&amp;type=3#Score Board_0&quot;); background-color: rgba(255, 255, 255, 0); height: 300px; -unity-background-scale-mode: stretch-to-fill; background-position-x: center; background-position-y: center;"/>
+            <ui:Button text="BUY" style="height: 100px; font-size: 57px; -unity-text-align: middle-center; top: 13px; margin-right: 4px; margin-left: 4px; width: 223px; left: 1310px;"/>
+            <ui:Label text="Speed: 100&#10;Fuel: 100&#10;Health: 1&#10;Skill: None" style="font-size: 48px; top: -90px; left: 20px;"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="Ship1" style="flex-grow: 1; width: 90%; height: 650px; margin-bottom: 60px;">
+            <ui:Image name="Image" source="project://database/Assets/Image/Space_ship.png?fileID=5226336652717572053&amp;guid=e50600009b3b3de4a99281c76e21bc54&amp;type=3#Space_ship_0" style="background-image: url(&quot;project://database/Assets/Image/Score%20Board.png?fileID=2231240236419785014&amp;guid=139679b377055394fa823c61d4c43f1d&amp;type=3#Score Board_0&quot;); background-color: rgba(255, 255, 255, 0); height: 300px; -unity-background-scale-mode: stretch-to-fill; background-position-x: center; background-position-y: center;"/>
+            <ui:Button text="BUY" style="height: 100px; font-size: 57px; -unity-text-align: middle-center; top: 13px; margin-right: 4px; margin-left: 4px; width: 223px; left: 1310px;"/>
+            <ui:Label text="Speed: 100&#10;Fuel: 100&#10;Health: 1&#10;Skill: None" style="font-size: 48px; top: -90px; left: 20px;"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="Ship1" style="flex-grow: 1; width: 90%; height: 650px; margin-bottom: 60px;">
+            <ui:Image name="Image" source="project://database/Assets/Image/Space_ship.png?fileID=5226336652717572053&amp;guid=e50600009b3b3de4a99281c76e21bc54&amp;type=3#Space_ship_0" style="background-image: url(&quot;project://database/Assets/Image/Score%20Board.png?fileID=2231240236419785014&amp;guid=139679b377055394fa823c61d4c43f1d&amp;type=3#Score Board_0&quot;); background-color: rgba(255, 255, 255, 0); height: 300px; -unity-background-scale-mode: stretch-to-fill; background-position-x: center; background-position-y: center;"/>
+            <ui:Button text="BUY" style="height: 100px; font-size: 57px; -unity-text-align: middle-center; top: 13px; margin-right: 4px; margin-left: 4px; width: 223px; left: 1310px;"/>
+            <ui:Label text="Speed: 100&#10;Fuel: 100&#10;Health: 1&#10;Skill: None" style="font-size: 48px; top: -90px; left: 20px;"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="Ship1" style="flex-grow: 1; width: 90%; height: 650px; margin-bottom: 60px;">
+            <ui:Image name="Image" source="project://database/Assets/Image/Space_ship.png?fileID=5226336652717572053&amp;guid=e50600009b3b3de4a99281c76e21bc54&amp;type=3#Space_ship_0" style="background-image: url(&quot;project://database/Assets/Image/Score%20Board.png?fileID=2231240236419785014&amp;guid=139679b377055394fa823c61d4c43f1d&amp;type=3#Score Board_0&quot;); background-color: rgba(255, 255, 255, 0); height: 300px; -unity-background-scale-mode: stretch-to-fill; background-position-x: center; background-position-y: center;"/>
+            <ui:Button text="BUY" style="height: 100px; font-size: 57px; -unity-text-align: middle-center; top: 13px; margin-right: 4px; margin-left: 4px; width: 223px; left: 1310px;"/>
+            <ui:Label text="Speed: 100&#10;Fuel: 100&#10;Health: 1&#10;Skill: None" style="font-size: 48px; top: -90px; left: 20px;"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="Ship1" style="flex-grow: 1; width: 90%; height: 650px; margin-bottom: 60px;">
+            <ui:Image name="Image" source="project://database/Assets/Image/Space_ship.png?fileID=5226336652717572053&amp;guid=e50600009b3b3de4a99281c76e21bc54&amp;type=3#Space_ship_0" style="background-image: url(&quot;project://database/Assets/Image/Score%20Board.png?fileID=2231240236419785014&amp;guid=139679b377055394fa823c61d4c43f1d&amp;type=3#Score Board_0&quot;); background-color: rgba(255, 255, 255, 0); height: 300px; -unity-background-scale-mode: stretch-to-fill; background-position-x: center; background-position-y: center;"/>
+            <ui:Button text="BUY" style="height: 100px; font-size: 57px; -unity-text-align: middle-center; top: 13px; margin-right: 4px; margin-left: 4px; width: 223px; left: 1310px;"/>
+            <ui:Label text="Speed: 100&#10;Fuel: 100&#10;Health: 1&#10;Skill: None" style="font-size: 48px; top: -90px; left: 20px;"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="Ship1" style="flex-grow: 1; width: 90%; height: 650px; margin-bottom: 60px;">
+            <ui:Image name="Image" source="project://database/Assets/Image/Space_ship.png?fileID=5226336652717572053&amp;guid=e50600009b3b3de4a99281c76e21bc54&amp;type=3#Space_ship_0" style="background-image: url(&quot;project://database/Assets/Image/Score%20Board.png?fileID=2231240236419785014&amp;guid=139679b377055394fa823c61d4c43f1d&amp;type=3#Score Board_0&quot;); background-color: rgba(255, 255, 255, 0); height: 300px; -unity-background-scale-mode: stretch-to-fill; background-position-x: center; background-position-y: center;"/>
+            <ui:Button text="BUY" style="height: 100px; font-size: 57px; -unity-text-align: middle-center; top: 13px; margin-right: 4px; margin-left: 4px; width: 223px; left: 1310px;"/>
+            <ui:Label text="Speed: 100&#10;Fuel: 100&#10;Health: 1&#10;Skill: None" style="font-size: 48px; top: -90px; left: 20px;"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="Ship1" style="flex-grow: 1; width: 90%; height: 650px; margin-bottom: 60px;">
+            <ui:Image name="Image" source="project://database/Assets/Image/Space_ship.png?fileID=5226336652717572053&amp;guid=e50600009b3b3de4a99281c76e21bc54&amp;type=3#Space_ship_0" style="background-image: url(&quot;project://database/Assets/Image/Score%20Board.png?fileID=2231240236419785014&amp;guid=139679b377055394fa823c61d4c43f1d&amp;type=3#Score Board_0&quot;); background-color: rgba(255, 255, 255, 0); height: 300px; -unity-background-scale-mode: stretch-to-fill; background-position-x: center; background-position-y: center;"/>
+            <ui:Button text="BUY" style="height: 100px; font-size: 57px; -unity-text-align: middle-center; top: 13px; margin-right: 4px; margin-left: 4px; width: 223px; left: 1310px;"/>
+            <ui:Label text="Speed: 100&#10;Fuel: 100&#10;Health: 1&#10;Skill: None" style="font-size: 48px; top: -90px; left: 20px;"/>
+        </ui:VisualElement>
+    </ui:ScrollView>
+</ui:UXML>
