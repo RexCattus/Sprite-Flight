@@ -23,7 +23,7 @@ public class Bullet : MonoBehaviour
         {
             playerController.score += 10;
             
-            // Phát âm thanh nổ ngay tại vị trí Camera để nghe rõ nhất, trước khi Đạn bị hủy
+            // Phát âm thanh nổ ngay tại vị trí Camera
             if (RockExplosionClip != null)
             {
                 AudioSource.PlayClipAtPoint(RockExplosionClip, Camera.main.transform.position);
@@ -32,7 +32,7 @@ public class Bullet : MonoBehaviour
             collision.gameObject.GetComponent<Obstacle>().BreakBigRock();
             
             Destroy(collision.gameObject);
-            Destroy(gameObject); // Hủy đạn sau cùng
+            Destroy(gameObject);
         }
     }
 }

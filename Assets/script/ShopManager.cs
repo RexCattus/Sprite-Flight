@@ -8,7 +8,9 @@ public class ShopManager : MonoBehaviour
     private int playerCoins;
 
     private Label txtCoins;
+    private Label txtNote;
     private Button btnBack;
+    private Button btnShip1;
 
     // Khai báo cho Máy bay số 2
     private Button btnShip2;
@@ -19,14 +21,18 @@ public class ShopManager : MonoBehaviour
         var root = uiDoc.rootVisualElement;
 
         txtCoins = root.Q<Label>("txtCoins");
-        btnBack = root.Q<Button>("btnBack");
+        txtNote = root.Q<Label>("Thongbao");
+        btnBack = root.Q<Button>("Back");
+        btnShip1 = root.Q<Button>("btnShip1");
         btnShip2 = root.Q<Button>("btnShip2");
 
-        UpdateCoinUI();
+        if(txtNote != null) txtNote.text = "";
 
-        UpdateShip2Button();
+        UpdateCoinUI();
+        UpdateAllButtons();
 
         btnBack.clicked += () => SceneManager.LoadScene("Menu");
+        btnShip1.clicked += OnShip1Clicked;
         btnShip2.clicked += OnShip2Clicked;
     }
 
@@ -36,24 +42,19 @@ public class ShopManager : MonoBehaviour
         playerCoins = PlayerPrefs.GetInt("PlayerCoins", 0);
         if (txtCoins != null)
         {
-            txtCoins.text = "Coins: " + playerCoins;
+            txtCoins.text = "Coins:" + playerCoins;
         }
     }
 
-    // Hàm kiểm tra và đổi chữ trên Nút mua
-    void UpdateShip2Button()
-    {
-        // 0 là chưa mua, 1 là đã mua
-        int isUnlocked = PlayerPrefs.GetInt("Ship2_Unlocked", 0);
 
-        if (isUnlocked == 1)
-        {
-            btnShip2.text = "Select";
-        }
-        else
-        {
-            btnShip2.text = "Buy: " + ship2Price; // Chưa mua thì hiện giá tiền
-        }
+
+    void OnShip1Clicked()
+    {
+        PlayerPrefs.SetInt("SelectedShip", 1);
+        PlayerPrefs.Save();
+
+        UpdateAllButtons();
+        Debug.Log("Đã trang bị máy bay số 1");
     }
 
     // Hàm xử lý khi bấm nút Ship 2
@@ -68,6 +69,8 @@ public class ShopManager : MonoBehaviour
                 // Trừ tiền
                 playerCoins -= ship2Price;
                 PlayerPrefs.SetInt("PlayerCoins", playerCoins);
+                txtNote.text = "";
+                
 
                 // Mở khóa 
                 PlayerPrefs.SetInt("Ship2_Unlocked", 1);
@@ -75,13 +78,13 @@ public class ShopManager : MonoBehaviour
 
                 // Cập nhật lại UI
                 UpdateCoinUI();
-                UpdateShip2Button();
-                Debug.Log("Đã mua thành công Siêu Tàu Chiến!");
+                UpdateAllButtons();
+                Debug.Log("Đã mua thành công");
             }
             else
             {
                 Debug.Log("Không đủ tiền!");
-                btnShip2.text = "Cần thêm tiền";
+                txtNote.text = "Không đủ tiền";
             }
         }
         else // Đã mua thì select
@@ -90,8 +93,35 @@ public class ShopManager : MonoBehaviour
             PlayerPrefs.SetInt("SelectedShip", 2);
             PlayerPrefs.Save();
 
-            btnShip2.text = "Selected!";
-            Debug.Log("Đã trang bị Máy bay số 2!");
+            UpdateAllButtons();
+            Debug.Log("Đã trang bị máy bay số 2");
+        }
+    }
+
+    void UpdateAllButtons()
+    {
+        int selectedShip = PlayerPrefs.GetInt("SelectedShip", 1);
+        if (selectedShip == 1)
+        {
+            btnShip1.text = "Selected";
+        }
+        else 
+        {
+            btnShip1.text = "Select";
+        }
+
+        int Ship2Unlocked = PlayerPrefs.GetInt("Ship2_Unlocked", 0);
+        if (Ship2Unlocked == 1)
+        {
+            if (selectedShip == 2)
+            {
+                btnShip2.text = "Selected";
+            }
+            else btnShip2.text = "Select";
+        }
+        else
+        {
+            btnShip2.text = "Buy:" + ship2Price;
         }
     }
 }

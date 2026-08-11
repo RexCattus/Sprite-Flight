@@ -235,7 +235,8 @@ public class PlayerController : MonoBehaviour
     {
         if (Ammo != null && currentFuel >= 10f)
         {
-            Instantiate(Ammo, ShootLocation.position, transform.rotation);
+            // Dùng ShootLocation.rotation thay vì transform.rotation để dễ chỉnh hướng bắn
+            Instantiate(Ammo, ShootLocation.position, ShootLocation.rotation);
             currentFuel -= 10f;
             UpdateFuelUI();
             SFXSound.PlayOneShot(ShootSound);

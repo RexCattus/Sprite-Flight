@@ -9,11 +9,11 @@
 }
 
 #Resume:hover {
-    background-image: url("project://database/Assets/Image/UI_Buttons.png?fileID=5802799835174370958&guid=5be432ab06c4f654c9ae98f4bfc0a00c&type=3#UI_Buttons_12");
+    background-image: url("project://database/Assets/Image/UI_Buttons.png?fileID=-1939118953878457694&guid=5be432ab06c4f654c9ae98f4bfc0a00c&type=3#UI_Buttons_20");
 }
 
 #Resume:active {
-    background-image: url("project://database/Assets/Image/UI_Buttons.png?fileID=5443615423995280755&guid=5be432ab06c4f654c9ae98f4bfc0a00c&type=3#UI_Buttons_7");
+    background-image: url("project://database/Assets/Image/UI_Buttons.png?fileID=-5501386671893047495&guid=5be432ab06c4f654c9ae98f4bfc0a00c&type=3#UI_Buttons_11");
 }
 
 #Quit {
@@ -21,11 +21,11 @@
 }
 
 #Quit:hover {
-    background-image: url("project://database/Assets/Image/UI_Buttons.png?fileID=-6187156380514981872&guid=5be432ab06c4f654c9ae98f4bfc0a00c&type=3#UI_Buttons_14");
+    background-image: url("project://database/Assets/Image/UI_Buttons.png?fileID=-6674059747960205598&guid=5be432ab06c4f654c9ae98f4bfc0a00c&type=3#UI_Buttons_22");
 }
 
 #Quit:active {
-    background-image: url("project://database/Assets/Image/UI_Buttons.png?fileID=296944135989094092&guid=5be432ab06c4f654c9ae98f4bfc0a00c&type=3#UI_Buttons_9");
+    background-image: url("project://database/Assets/Image/UI_Buttons.png?fileID=9160267285729102424&guid=5be432ab06c4f654c9ae98f4bfc0a00c&type=3#UI_Buttons_13");
 }
 
 #Play {
@@ -33,11 +33,11 @@
 }
 
 #Play:hover {
-    background-image: url("project://database/Assets/Image/UI_Buttons.png?fileID=-6730508959240759184&guid=5be432ab06c4f654c9ae98f4bfc0a00c&type=3#UI_Buttons_10");
+    background-image: url("project://database/Assets/Image/UI_Buttons.png?fileID=5811623420353488977&guid=5be432ab06c4f654c9ae98f4bfc0a00c&type=3#UI_Buttons_18");
 }
 
 #Play:active {
-    background-image: url("project://database/Assets/Image/UI_Buttons.png?fileID=-9075372253054032488&guid=5be432ab06c4f654c9ae98f4bfc0a00c&type=3#UI_Buttons_5");
+    background-image: url("project://database/Assets/Image/UI_Buttons.png?fileID=296944135989094092&guid=5be432ab06c4f654c9ae98f4bfc0a00c&type=3#UI_Buttons_9");
 }
 
 #Restart {
@@ -45,9 +45,52 @@
 }
 
 #Restart:hover {
-    background-image: url("project://database/Assets/Image/UI_Buttons.png?fileID=9160267285729102424&guid=5be432ab06c4f654c9ae98f4bfc0a00c&type=3#UI_Buttons_13");
+    background-image: url("project://database/Assets/Image/UI_Buttons.png?fileID=5987559647945176134&guid=5be432ab06c4f654c9ae98f4bfc0a00c&type=3#UI_Buttons_21");
 }
 
 #Restart:active {
+    background-image: url("project://database/Assets/Image/UI_Buttons.png?fileID=5802799835174370958&guid=5be432ab06c4f654c9ae98f4bfc0a00c&type=3#UI_Buttons_12");
+}
+
+#Back {
+    background-image: url("project://database/Assets/Image/UI_Buttons.png?fileID=-9075372253054032488&guid=5be432ab06c4f654c9ae98f4bfc0a00c&type=3#UI_Buttons_5");
+    background-color: rgba(174, 174, 174, 0);
+}
+
+#Back:hover {
+    background-image: url("project://database/Assets/Image/UI_Buttons.png?fileID=6029490960356256969&guid=5be432ab06c4f654c9ae98f4bfc0a00c&type=3#UI_Buttons_23");
+    background-color: rgba(194, 194, 194, 0);
+}
+
+#Back:active {
+    background-image: url("project://database/Assets/Image/UI_Buttons.png?fileID=-6187156380514981872&guid=5be432ab06c4f654c9ae98f4bfc0a00c&type=3#UI_Buttons_14");
+    background-color: rgba(56, 56, 56, 0);
+}
+
+.btn-buy {
     background-image: url("project://database/Assets/Image/UI_Buttons.png?fileID=-7257974199788926244&guid=5be432ab06c4f654c9ae98f4bfc0a00c&type=3#UI_Buttons_8");
+    background-color: rgba(77, 77, 77, 0);
+}
+
+.btn-buy:hover {
+    background-image: url("project://database/Assets/Image/UI_Buttons.png?fileID=-4367795049968701439&guid=5be432ab06c4f654c9ae98f4bfc0a00c&type=3#UI_Buttons_26");
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.btn-buy:active {
+    background-image: url("project://database/Assets/Image/UI_Buttons.png?fileID=5213170071327885048&guid=5be432ab06c4f654c9ae98f4bfc0a00c&type=3#UI_Buttons_17");
+    background-color: rgba(79, 79, 79, 0);
+}
+
+#Shop {
+    background-image: url("project://database/Assets/Image/UI_Buttons.png?fileID=5443615423995280755&guid=5be432ab06c4f654c9ae98f4bfc0a00c&type=3#UI_Buttons_7");
+}
+
+#Shop:hover {
+    background-image: url("project://database/Assets/Image/UI_Buttons.png?fileID=-4793978554613580757&guid=5be432ab06c4f654c9ae98f4bfc0a00c&type=3#UI_Buttons_25");
+    background-color: rgb(255, 0, 0);
+}
+
+#Shop:active {
+    background-image: url("project://database/Assets/Image/UI_Buttons.png?fileID=8169849489479417636&guid=5be432ab06c4f654c9ae98f4bfc0a00c&type=3#UI_Buttons_16");
 }
