@@ -26,12 +26,11 @@ public class ShopManager : MonoBehaviour
 
         UpdateShip2Button();
 
-        // 4. Gắn hành động khi người chơi bấm nút
-        btnBack.clicked += GoBack;
+        btnBack.clicked += () => SceneManager.LoadScene("Menu");
         btnShip2.clicked += OnShip2Clicked;
     }
 
-    // Hàm cập nhật và hiển thị tiền
+    // Cập nhật và hiển thị tiền
     void UpdateCoinUI()
     {
         playerCoins = PlayerPrefs.GetInt("PlayerCoins", 0);
@@ -94,10 +93,5 @@ public class ShopManager : MonoBehaviour
             btnShip2.text = "Selected!";
             Debug.Log("Đã trang bị Máy bay số 2!");
         }
-    }
-
-    void GoBack()
-    {
-        SceneManager.LoadScene("Menu");
     }
 }

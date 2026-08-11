@@ -17,25 +17,23 @@ public class MainMenu : MonoBehaviour
         Button playBtn = uiDoc.rootVisualElement.Q<Button>("Play");
         if (playBtn != null)
         {
-            playBtn.clicked += PlayGame;
+            playBtn.clicked += () => SceneManager.LoadScene("Play");
+        }
+
+        Button shopBtn = uiDoc.rootVisualElement.Q<Button>("Shop");
+        if (shopBtn != null)
+        {
+            shopBtn.clicked += () => SceneManager.LoadScene("Shop");
         }
 
         Button quitBtn = uiDoc.rootVisualElement.Q<Button>("Quit");
         if (quitBtn != null)
         {
-            quitBtn.clicked += QuitGame;
+            quitBtn.clicked += () => 
+            {
+                Debug.Log("Quit game");
+                Application.Quit();
+            };
         }
-    }
-
-    private void PlayGame()
-    {
-        // Chuyển sang Scene có tên là "Play"
-        SceneManager.LoadScene("Play");
-    }
-
-    private void QuitGame()
-    {
-        Debug.Log("Đã bấm nút Quit!");
-        Application.Quit();
     }
 }

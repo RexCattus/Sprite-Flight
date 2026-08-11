@@ -17,11 +17,11 @@ public class PlayerController : MonoBehaviour
     public float scoreMutiplier = 1f;
 
     [Header("References")]
-    public ParticleSystem flameEffect;
+    public ParticleSystem[] flameEffects;
     public GameObject ExhaustEffect;
-    public GameObject explosionEffect; // Prefab hiệu ứng nổ
-    public GameManager gameManager; // Tham chiếu đến GameManager để cập nhật điểm số
-    public UIDocument UIdoc; // Tham chiếu đến UI Document chứa Text để hiển thị điểm số
+    public GameObject explosionEffect;
+    public GameManager gameManager; // GameManager để cập nhật điểm
+    public UIDocument UIdoc; // UI Document hiển thị điểm
     private Label scoreText;
     private Button Restart;
     public GameObject Ammo;
@@ -45,14 +45,29 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rb.freezeRotation = true; // tránh bị xoay khi đập vào tường
-        scoreText = UIdoc.rootVisualElement.Q<Label>("ScoreLabel"); // Tìm Label trong UI Document
-        Restart = UIdoc.rootVisualElement.Q<Button>("Restart"); // Tìm Button trong UI Document
-        Restart.style.display = DisplayStyle.None; // Ẩn nút Restart
-        Restart.clicked += RestartGame; // Gán sự kiện click cho nút Restart
-        fuelFill = UIdoc.rootVisualElement.Q<VisualElement>("Fuel_Fill");
 
-        // Đảm bảo Particle System luôn chạy ngầm
-        if (flameEffect != null) flameEffect.Play();
+        // auto tìm UIDoc và GameManager khi vào scene,tránh null reference
+        if (UIdoc == null) UIdoc = FindFirstObjectByType<UIDocument>();
+        if (gameManager == null) gameManager = FindFirstObjectByType<GameManager>();
+
+        if (UIdoc != null && UIdoc.rootVisualElement != null)
+        {
+            scoreText = UIdoc.rootVisualElement.Q<Label>("ScoreLabel"); 
+            Restart = UIdoc.rootVisualElement.Q<Button>("Restart"); 
+            if (Restart != null)
+            {
+                Restart.style.display = DisplayStyle.None; 
+                Restart.clicked += RestartGame; 
+            }
+            fuelFill = UIdoc.rootVisualElement.Q<VisualElement>("Fuel_Fill");
+        }
+        else
+        {
+            Debug.LogError("Không tìm thấy UI Document trong Scene");
+        }
+
+        // vòng lặp chạy full flameEffect khi start do có nhiều particle system
+        foreach (var p in flameEffects) { if (p != null) p.Play(); }
     }
 
     // Update is called once per frame
@@ -67,7 +82,7 @@ public class PlayerController : MonoBehaviour
 
     void LateUpdate()
     {
-        // Cố định lại vận tốc tối đa một lần nữa ngay sau khi hệ thống Vật lý tính toán xong.
+        // Cố định lại vận tốc tối đa một lần nữa ngay sau khi hệ thống Vật lý tính xong.
         // Giúp triệt tiêu các lực đẩy sinh ra do lỗi kẹt Collider.
         if (rb != null && rb.linearVelocity.magnitude > maxSpeed)
         {
@@ -125,7 +140,7 @@ public class PlayerController : MonoBehaviour
     private void UpdateScore()
     {
         score += Time.deltaTime * scoreMutiplier;
-        scoreText.text = "Score: " + Mathf.FloorToInt(score); //Cập nhật điểm số trên UI
+        scoreText.text = "Score: " + Mathf.FloorToInt(score); //Cập nhật điểm trên UI
     }
     private void MovePlayer()
     {
@@ -141,7 +156,7 @@ public class PlayerController : MonoBehaviour
             if (distance > 0.4f)
             {
                 // Xoay phi thuyền về hướng chuột bằng Slerp
-                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
                 float currentAngle = rb.rotation;
                 float newAngle = Mathf.LerpAngle(currentAngle, angle, Time.deltaTime * 15f);
                 rb.MoveRotation(newAngle);
@@ -153,12 +168,11 @@ public class PlayerController : MonoBehaviour
                     rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
                 }
 
-                if (flameEffect != null)
+                foreach (var p in flameEffects)
                 {
-                    var em = flameEffect.emission;
-                    em.enabled = true; // Bật van xả khói
+                    if (p != null) { var em = p.emission; em.enabled = true; }
                 }
-                ExhaustEffect.SetActive(true);
+                if (ExhaustEffect != null) ExhaustEffect.SetActive(true);
 
                 if (EngineSound.isPlaying == false)
                 {
@@ -173,12 +187,11 @@ public class PlayerController : MonoBehaviour
             {
                 // Giảm tốc khi ở sát vị trí chuột
                 rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, Vector2.zero, Time.deltaTime * 8f);
-                if (flameEffect != null)
+                foreach (var p in flameEffects)
                 {
-                    var em = flameEffect.emission;
-                    em.enabled = false; // Tắt van xả khói
+                    if (p != null) { var em = p.emission; em.enabled = false; }
                 }
-                ExhaustEffect.SetActive(false);
+                if (ExhaustEffect != null) ExhaustEffect.SetActive(false);
 
                 if (EngineSound.isPlaying == true)
                 {
@@ -189,15 +202,14 @@ public class PlayerController : MonoBehaviour
         // nếu ko giữ chuột
         else
         {
-            // Hãm phanh mượt mà trong không gian
+            // Phanh lại
             rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, Vector2.zero, Time.deltaTime * 2f);
 
-            if (flameEffect != null)
+            foreach (var p in flameEffects)
             {
-                var em = flameEffect.emission;
-                em.enabled = false; // Tắt van xả khói
+                if (p != null) { var em = p.emission; em.enabled = false; }
             }
-            ExhaustEffect.SetActive(false);
+            if (ExhaustEffect != null) ExhaustEffect.SetActive(false);
 
             // Tắt âm thanh
             if (EngineSound.isPlaying == true)
@@ -208,7 +220,7 @@ public class PlayerController : MonoBehaviour
     }
     private void RestartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Tải lại scene hiện tại để bắt đầu lại trò chơi
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Tải lại scene hiện tại để restart
     }
 
     private void UpdateFuelUI()
