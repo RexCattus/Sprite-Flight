@@ -22,6 +22,16 @@
                 <ui:Label text="Speed: 200&#10;Fuel: 100&#10;Health: 1&#10;Skill: Instant Jump" name="Description" style="font-size: 48px; top: -90px; left: 20px; -unity-font-definition: url(&quot;project://database/Assets/Font/Monocraft.ttc?fileID=12800000&amp;guid=3f62dd2574613e347a4bdbc0cb134e86&amp;type=3#Monocraft&quot;); width: 1172px;"/>
                 <ui:Label text="Lightning" name="Name" style="font-size: 67px; top: 122px; left: 82px; position: absolute; -unity-font-definition: url(&quot;project://database/Assets/Font/Monocraft.ttc?fileID=12800000&amp;guid=3f62dd2574613e347a4bdbc0cb134e86&amp;type=3#Monocraft&quot;);"/>
             </ui:VisualElement>
+            <ui:VisualElement name="Ship3" style="flex-grow: 1; width: 90%; height: 650px; margin-bottom: 60px;">
+                <ui:VisualElement style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Image/SpaceShip_Frame-export%201.png?fileID=8579782253119389731&amp;guid=c71cc7c6036143e41a066f88b497d1d5&amp;type=3#SpaceShip_Frame-export 1_0&quot;); height: 300px; -unity-background-scale-mode: stretch-to-fill;">
+                    <ui:Image name="Image" source="project://database/Assets/Image/Ship%203.png?fileID=4821730982974477414&amp;guid=83cb5ebf63ac7ea468f06e54872229d9&amp;type=3#Ship 3_0" scale-mode="ScaleToFit" uv="0,0,1,1" style="background-image: none; background-color: rgba(79, 79, 79, 0); height: 285px; -unity-background-scale-mode: scale-to-fit; background-position-x: center; background-position-y: center; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; border-top-left-radius: 55px; border-top-right-radius: 55px; border-bottom-right-radius: 55px; border-bottom-left-radius: 55px; justify-content: flex-start; align-self: auto; align-items: stretch; background-size: 100% 100%; top: 22px;"/>
+                </ui:VisualElement>
+                <ui:Button text="" name="btnShip3" class="btn-buy" style="height: 100px; font-size: 50px; -unity-text-align: middle-center; top: 13px; margin-right: 4px; margin-left: 4px; width: 223px; left: 1310px; background-color: rgba(55, 55, 55, 0);">
+                    <ui:Label text="" name="Thongbao" style="-unity-font-definition: url(&quot;project://database/Assets/Font/Monocraft.ttc?fileID=12800000&amp;guid=3f62dd2574613e347a4bdbc0cb134e86&amp;type=3#Monocraft&quot;); top: 103px;"/>
+                </ui:Button>
+                <ui:Label text="Speed: 75&#10;Fuel: 200&#10;Health: 1&#10;Skill: Charge" name="Description" style="font-size: 48px; top: -90px; left: 20px; -unity-font-definition: url(&quot;project://database/Assets/Font/Monocraft.ttc?fileID=12800000&amp;guid=3f62dd2574613e347a4bdbc0cb134e86&amp;type=3#Monocraft&quot;); width: 1172px;"/>
+                <ui:Label text="Hammer Head" name="Name" style="font-size: 67px; top: 122px; left: 82px; position: absolute; -unity-font-definition: url(&quot;project://database/Assets/Font/Monocraft.ttc?fileID=12800000&amp;guid=3f62dd2574613e347a4bdbc0cb134e86&amp;type=3#Monocraft&quot;);"/>
+            </ui:VisualElement>
         </ui:ScrollView>
     </ui:VisualElement>
 </ui:UXML>

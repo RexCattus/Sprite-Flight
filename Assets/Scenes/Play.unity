@@ -907,6 +907,7 @@ MonoBehaviour:
   Ships:
   - {fileID: 1994950762132161762, guid: a491e81a7c05af44984553cdeaaaef91, type: 3}
   - {fileID: 6838200393476422825, guid: 069b9f60f32f5a241bf13154603b0777, type: 3}
+  - {fileID: 8539582302700914624, guid: 1bd1410fa55897743a7a1440883c2c98, type: 3}
 --- !u!4 &919598104
 Transform:
   m_ObjectHideFlags: 0

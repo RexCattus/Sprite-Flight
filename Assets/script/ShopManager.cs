@@ -16,6 +16,9 @@ public class ShopManager : MonoBehaviour
     private Button btnShip2;
     private int ship2Price = 50;
 
+    private Button btnShip3;
+    private int ship3Price = 10;
+
     void Start()
     {
         var root = uiDoc.rootVisualElement;
@@ -25,6 +28,7 @@ public class ShopManager : MonoBehaviour
         btnBack = root.Q<Button>("Back");
         btnShip1 = root.Q<Button>("btnShip1");
         btnShip2 = root.Q<Button>("btnShip2");
+        btnShip3 = root.Q<Button>("btnShip3");
 
         if(txtNote != null) txtNote.text = "";
 
@@ -34,6 +38,7 @@ public class ShopManager : MonoBehaviour
         btnBack.clicked += () => SceneManager.LoadScene("Menu");
         btnShip1.clicked += OnShip1Clicked;
         btnShip2.clicked += OnShip2Clicked;
+        btnShip3.clicked += OnShip3Clicked;
     }
 
     // Cập nhật và hiển thị tiền
@@ -98,6 +103,46 @@ public class ShopManager : MonoBehaviour
         }
     }
 
+    void OnShip3Clicked()
+    {
+        int isUnlocked = PlayerPrefs.GetInt("Ship3_Unlocked", 0);
+
+        if (isUnlocked == 0) // chưa mua thì thanh toán
+        {
+            if (playerCoins >= ship3Price)
+            {
+                // Trừ tiền
+                playerCoins -= ship3Price;
+                PlayerPrefs.SetInt("PlayerCoins", playerCoins);
+                txtNote.text = "";
+                
+
+                // Mở khóa 
+                PlayerPrefs.SetInt("Ship3_Unlocked", 1);
+                PlayerPrefs.Save();
+
+                // Cập nhật lại UI
+                UpdateCoinUI();
+                UpdateAllButtons();
+                Debug.Log("Đã mua thành công");
+            }
+            else
+            {
+                Debug.Log("Không đủ tiền!");
+                txtNote.text = "Không đủ tiền";
+            }
+        }
+        else // Đã mua thì select
+        {
+            // Số 3 là ID đại diện cho máy bay này
+            PlayerPrefs.SetInt("SelectedShip", 3);
+            PlayerPrefs.Save();
+
+            UpdateAllButtons();
+            Debug.Log("Đã trang bị máy bay số 3");
+        }
+    }
+
     void UpdateAllButtons()
     {
         int selectedShip = PlayerPrefs.GetInt("SelectedShip", 1);
@@ -122,6 +167,20 @@ public class ShopManager : MonoBehaviour
         else
         {
             btnShip2.text = "Buy:" + ship2Price;
+        }
+
+        int Ship3Unlocked = PlayerPrefs.GetInt("Ship3_Unlocked", 0);
+        if (Ship3Unlocked == 1)
+        {
+            if (selectedShip == 3)
+            {
+                btnShip3.text = "Selected";
+            }
+            else btnShip3.text = "Select";
+        }
+        else
+        {
+            btnShip3.text = "Buy:" + ship3Price;
         }
     }
 }
