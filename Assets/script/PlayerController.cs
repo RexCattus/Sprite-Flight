@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 1f;
     public float maxSpeed = 5f;
     public float scoreMutiplier = 1f;
+    public BaseSkill primarySkill;
 
     [Header("References")]
     public ParticleSystem[] flameEffects;
@@ -78,6 +79,13 @@ public class PlayerController : MonoBehaviour
         {
             ShootAmmo();
         }
+        if (Keyboard.current.fKey.wasPressedThisFrame)
+        {
+            if (primarySkill != null)
+            {
+                primarySkill.UseSkill();
+            }
+        }
     }
 
     void LateUpdate()
@@ -93,27 +101,14 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         MovePlayer();
-    }
-    private void OnCollisionEnter2D(Collision2D other)
+    } 
+    
+    public void Die()
     {
-        if (other.gameObject.CompareTag("Enemy"))
-        {
-            if (Shield.activeSelf)
-            {
-                if (other.gameObject.CompareTag("Enemy"))
-                {
-                    Destroy(other.gameObject);
-                    other.gameObject.GetComponent<Obstacle>().BreakBigRock();
-                }
-            }
-            else
-            {
-                Destroy(gameObject);
-                Instantiate(explosionEffect, transform.position, transform.rotation);
-                Restart.style.display = DisplayStyle.Flex;
-                gameManager.end_work(score);
-            }
-        }
+        Instantiate(explosionEffect, transform.position, transform.rotation);
+        Restart.style.display = DisplayStyle.Flex;
+        gameManager.end_work(score);
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

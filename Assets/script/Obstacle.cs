@@ -28,8 +28,7 @@ public class Obstacle : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         float randomspd = Random.Range(minSpd, maxSpd) / RandomSize;
 
-        Vector2 randomdir = Random.insideUnitCircle;
-        rb.AddForce(randomdir * randomspd);
+        rb.AddForce(Vector2.left * randomspd);
 
         float randomspin = Random.Range(-maxspinspd, maxspinspd);
         rb.AddTorque(randomspin);
@@ -39,7 +38,7 @@ public class Obstacle : MonoBehaviour
     void FixedUpdate()
     {
         rb.AddForce(Vector3.left * Time.deltaTime * 6);
-        if (transform.position.x < -22f || transform.position.x > 22f || transform.position.y < -12f || transform.position.y > 12f)
+        if (transform.position.x < -35f || transform.position.x > 45f || transform.position.y < -12.5f || transform.position.y > 12.5f)
         {
             Destroy(gameObject);
         }
@@ -48,12 +47,41 @@ public class Obstacle : MonoBehaviour
             rb.linearVelocity = rb.linearVelocity.normalized * maxSpd;
         }
     }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         Vector2 contactPoint = collision.GetContact(0).point;
         GameObject bounceEffect = Instantiate(explosionEffect, contactPoint, Quaternion.identity);
         Destroy(bounceEffect, 1f); // Hủy hiệu ứng sau 1 giây
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if (HasActiveShield(collision.gameObject))
+            {
+                BreakBigRock();
+                Destroy(gameObject);
+                return;
+            }
+            PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+            player.Die();
+        }
     }
+
+    private bool HasActiveShield(GameObject target)
+    {
+        Transform[] allChildren = target.GetComponentsInChildren<Transform>();
+
+        foreach (Transform child in allChildren)
+        {
+            if (child.CompareTag("Shield"))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public void BreakBigRock()
     {
         if (isBigRock && smallRockPrefab != null)

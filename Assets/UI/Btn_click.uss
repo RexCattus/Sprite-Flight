@@ -94,3 +94,50 @@
 #Shop:active {
     background-image: url("project://database/Assets/Image/UI_Buttons.png?fileID=8169849489479417636&guid=5be432ab06c4f654c9ae98f4bfc0a00c&type=3#UI_Buttons_16");
 }
+
+.unity-base-slider__dragger {
+    background-image: url("project://database/Assets/Image/UI_Scroller.png?fileID=7746723561844897521&guid=324817ec4b5ad8b40a44f3f3094ff1b2&type=3#UI_Scroller_0");
+    background-color: rgba(55, 55, 55, 0);
+    -unity-background-scale-mode: stretch-to-fill;
+    width: 100%;
+    left: 0;
+    right: 0;
+    position: absolute;
+    height: auto;
+    min-height: 50px;
+    max-height: 140px;
+}
+
+.unity-base-slider__tracker {
+    background-color: rgba(255, 255, 255, 0.282);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    width: 30%;
+    align-self: center;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: flex-start;
+    margin-right: auto;
+    margin-left: auto;
+    left: 0;
+    right: 0;
+    position: relative;
+}
+
+.unity-scroller__low-button {
+    visibility: hidden;
+}
+
+.unity-scroller__high-button {
+    visibility: hidden;
+}
+
+.unity-scroller--vertical {
+    width: 90px;
+}
+
+.unity-scroller__slider {
+    width: 100%;
+}

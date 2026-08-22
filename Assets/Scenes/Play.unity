@@ -165,8 +165,8 @@ MonoBehaviour:
   Shield: {fileID: 4583185382343433217, guid: 997d889c1ac5aa045acaebbf0c8542e8, type: 3}
   Fuel: {fileID: 1301042684615131262, guid: b3b82a61256575b4e9f7577c5fe6e9ca, type: 3}
   timeSpawn: 1.5
-  gioihanY: 6.5
-  vitrispawnX: 20
+  gioihanY: 12
+  vitrispawnX: 32
   fuelTimeSpawn: 4.5
 --- !u!4 &286099872
 Transform:
@@ -482,7 +482,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 7.51
+  orthographic size: 12.15
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -612,9 +612,9 @@ Transform:
   m_GameObject: {fileID: 552625218}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 38.399998, y: 0.00000014901161, z: 0.01}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 50.688, y: 0.00000014901161, z: 0.01}
+  m_LocalScale: {x: 1.32, y: 1.32, z: 1.32}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -643,9 +643,9 @@ Transform:
   m_GameObject: {fileID: 607125590}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.341, y: -8.25, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 13.9, y: -13.69, z: 0}
+  m_LocalScale: {x: 1.68, y: 1.68, z: 1.68}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1461138320}
   - {fileID: 457897490}
@@ -908,6 +908,7 @@ MonoBehaviour:
   - {fileID: 1994950762132161762, guid: a491e81a7c05af44984553cdeaaaef91, type: 3}
   - {fileID: 6838200393476422825, guid: 069b9f60f32f5a241bf13154603b0777, type: 3}
   - {fileID: 8539582302700914624, guid: 1bd1410fa55897743a7a1440883c2c98, type: 3}
+  - {fileID: 2543416968688130758, guid: f24fbb2f2ad4f0049a7cee117bcb322c, type: 3}
 --- !u!4 &919598104
 Transform:
   m_ObjectHideFlags: 0
@@ -1161,8 +1162,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.01}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.32, y: 1.32, z: 1.32}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

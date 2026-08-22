@@ -181,8 +181,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Obstacle
   minSize: 3
   maxSize: 8
-  minSpd: 100
-  maxSpd: 300
+  minSpd: 451.4
+  maxSpd: 1010.5
   maxspinspd: 10
   explosionEffect: {fileID: 1123483977833261923, guid: 0df9b6f2509e6fc41a90808bfb411a8e, type: 3}
   isBigRock: 1

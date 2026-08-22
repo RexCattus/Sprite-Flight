@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4241919064461384611}
   m_Layer: 10
   m_Name: Shield
-  m_TagString: Untagged
+  m_TagString: Shield
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5117,9 +5117,10 @@ GameObject:
   - component: {fileID: 7942518619141716462}
   - component: {fileID: 2047222345814978086}
   - component: {fileID: 3991099569019253834}
+  - component: {fileID: 7617711013383117847}
   m_Layer: 0
   m_Name: Space_ship_2.0
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5277,6 +5278,7 @@ MonoBehaviour:
   speed: 10
   maxSpeed: 50
   scoreMutiplier: 1
+  primarySkill: {fileID: 7617711013383117847}
   flameEffects:
   - {fileID: 4422059990679424145}
   - {fileID: 5660481820688057009}
@@ -5514,6 +5516,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &7617711013383117847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6838200393476422825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb841671c8b65044a8fac7f0a1f055e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InstantJumpSkill
+  skillName: 
+  coolDownTime: 0
 --- !u!1 &6873410316086022408
 GameObject:
   m_ObjectHideFlags: 0

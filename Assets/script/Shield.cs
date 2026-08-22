@@ -29,7 +29,7 @@ public class Shield : MonoBehaviour
         transform.Translate(Vector3.left * speed * Time.deltaTime, Space.World);
         transform.Rotate(Vector3.forward * spinSpeed * Time.deltaTime);
         // Tự hủy khi vượt ngoài giới hạn màn hình
-        if (transform.position.x < -22f || transform.position.x > 22f || transform.position.y < -12f || transform.position.y > 12f)
+        if (transform.position.x < -35f || transform.position.x > 45f || transform.position.y < -12.5f || transform.position.y > 12.5f)
         {
             Destroy(gameObject);
         }

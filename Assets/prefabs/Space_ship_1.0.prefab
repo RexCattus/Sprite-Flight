@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2498066239633353225}
   m_Layer: 10
   m_Name: Shield
-  m_TagString: Untagged
+  m_TagString: Shield
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: 6337071102794751115}
   m_Layer: 0
   m_Name: Space_ship_1.0
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -418,6 +418,7 @@ MonoBehaviour:
   speed: 5
   maxSpeed: 30
   scoreMutiplier: 1
+  primarySkill: {fileID: 0}
   flameEffects:
   - {fileID: 6056905014948386227}
   - {fileID: 2439096309385328016}

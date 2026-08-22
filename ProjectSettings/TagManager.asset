@@ -9,6 +9,7 @@ TagManager:
   - Wall
   - Bullet
   - Shield
+  - EnergyBurst
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Unwalkable
   - Bullet
   - Shield
-  - 
+  - EnergyBurst
   - 
   - 
   - 
