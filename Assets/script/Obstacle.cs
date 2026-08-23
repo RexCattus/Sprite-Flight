@@ -73,7 +73,7 @@ public class Obstacle : MonoBehaviour
 
         foreach (Transform child in allChildren)
         {
-            if (child.CompareTag("Shield"))
+            if (child.CompareTag("Shield") && child.gameObject.activeInHierarchy)
             {
                 return true;
             }

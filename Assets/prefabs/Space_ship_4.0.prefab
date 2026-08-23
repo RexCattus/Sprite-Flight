@@ -14915,7 +14915,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnergyBlast
   pushForce: 15
-  duration: 0.3
 --- !u!1 &2543416968688130758
 GameObject:
   m_ObjectHideFlags: 0
@@ -15348,7 +15347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dea3d9e4e3daf184db56c7a82adb72e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnergySkill
-  skillName: 
+  skillName: Energy Force
   coolDownTime: 3
   SkillPrefab: {fileID: 2346140844695177944}
 --- !u!1 &4061642718448728738

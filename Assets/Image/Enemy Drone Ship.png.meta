@@ -1,0 +1,1068 @@
+fileFormatVersion: 2
+guid: 120a4410aff21314f892c54867c85080
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1497906557410247511
+    second: Enemy Drone Ship_0
+  - first:
+      213: -3106964641843922878
+    second: Enemy Drone Ship_1
+  - first:
+      213: 6232651892666987942
+    second: Enemy Drone Ship_2
+  - first:
+      213: -8160780885005054948
+    second: Enemy Drone Ship_3
+  - first:
+      213: -8493992052113331063
+    second: Enemy Drone Ship_4
+  - first:
+      213: 6424038454322624317
+    second: Enemy Drone Ship_5
+  - first:
+      213: -2171109344585111223
+    second: Enemy Drone Ship_6
+  - first:
+      213: 4869829949633917542
+    second: Enemy Drone Ship_7
+  - first:
+      213: -4181069283279525191
+    second: Enemy Drone Ship_8
+  - first:
+      213: -3184193045923672739
+    second: Enemy Drone Ship_9
+  - first:
+      213: -4939882499930864117
+    second: Enemy Drone Ship_10
+  - first:
+      213: -8495295790510452372
+    second: Enemy Drone Ship_11
+  - first:
+      213: 6743749818222577242
+    second: Enemy Drone Ship_12
+  - first:
+      213: -2103170602812472603
+    second: Enemy Drone Ship_13
+  - first:
+      213: 4664404572253212845
+    second: Enemy Drone Ship_14
+  - first:
+      213: 6172545134224057964
+    second: Enemy Drone Ship_15
+  - first:
+      213: -740400873613176271
+    second: Enemy Drone Ship_16
+  - first:
+      213: 1449884724670009069
+    second: Enemy Drone Ship_17
+  - first:
+      213: 4238108836516524055
+    second: Enemy Drone Ship_18
+  - first:
+      213: -9096517857123165558
+    second: Enemy Drone Ship_19
+  - first:
+      213: 9067706850456831810
+    second: Enemy Drone Ship_20
+  - first:
+      213: -9032497333054717428
+    second: Enemy Drone Ship_21
+  - first:
+      213: 2688204172330791057
+    second: Enemy Drone Ship_22
+  - first:
+      213: -7058175162365293737
+    second: Enemy Drone Ship_23
+  - first:
+      213: -6775404858746409860
+    second: Enemy Drone Ship_24
+  - first:
+      213: 5898534575838404605
+    second: Enemy Drone Ship_25
+  - first:
+      213: 4825812997064707028
+    second: Enemy Drone Ship_26
+  - first:
+      213: 6199704769156021910
+    second: Enemy Drone Ship_27
+  - first:
+      213: 2323846266160618185
+    second: Enemy Drone Ship_28
+  - first:
+      213: 8177918709717740755
+    second: Enemy Drone Ship_29
+  - first:
+      213: 3088668251797683422
+    second: Enemy Drone Ship_30
+  - first:
+      213: -6199213299872401699
+    second: Enemy Drone Ship_31
+  - first:
+      213: -8766289751933964227
+    second: Enemy Drone Ship_32
+  - first:
+      213: 6471238075802238148
+    second: Enemy Drone Ship_33
+  - first:
+      213: 5246586882298486377
+    second: Enemy Drone Ship_34
+  - first:
+      213: 1812315469179648673
+    second: Enemy Drone Ship_35
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Enemy Drone Ship_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 272
+        width: 44
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ac75da1ced563be0800000000000000
+      internalID: -1497906557410247511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Drone Ship_1
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 272
+        width: 44
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 248b131ae18d1e4d0800000000000000
+      internalID: -3106964641843922878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Drone Ship_2
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 272
+        width: 44
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a5f417dfd3de7650800000000000000
+      internalID: 6232651892666987942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Drone Ship_3
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 272
+        width: 44
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1cc973d5051fbe80800000000000000
+      internalID: -8160780885005054948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Drone Ship_4
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 272
+        width: 44
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98c2bc05b374f1a80800000000000000
+      internalID: -8493992052113331063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Drone Ship_5
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 272
+        width: 44
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d37795d20f4c62950800000000000000
+      internalID: 6424038454322624317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Drone Ship_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 195
+        width: 58
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 949297bdd8baed1e0800000000000000
+      internalID: -2171109344585111223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Drone Ship_7
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 195
+        width: 58
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 662fc78a98c159340800000000000000
+      internalID: 4869829949633917542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Drone Ship_8
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 195
+        width: 58
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9baa3dc93abd9f5c0800000000000000
+      internalID: -4181069283279525191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Drone Ship_9
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 195
+        width: 58
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5d43799b497fc3d0800000000000000
+      internalID: -3184193045923672739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Drone Ship_10
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 195
+        width: 58
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b06c377f903027bb0800000000000000
+      internalID: -4939882499930864117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Drone Ship_11
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 195
+        width: 58
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c61d0c01d75aa1a80800000000000000
+      internalID: -8495295790510452372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Drone Ship_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 175
+        width: 58
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a560341dabc969d50800000000000000
+      internalID: 6743749818222577242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Drone Ship_13
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 175
+        width: 58
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e28155da7900d2e0800000000000000
+      internalID: -2103170602812472603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Drone Ship_14
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 175
+        width: 58
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da05cd1de3b4bb040800000000000000
+      internalID: 4664404572253212845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Drone Ship_15
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 175
+        width: 58
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c66ad75981949a550800000000000000
+      internalID: 6172545134224057964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Drone Ship_16
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 175
+        width: 58
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 132d5e8045199b5f0800000000000000
+      internalID: -740400873613176271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Drone Ship_17
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 175
+        width: 58
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dee883ba9760f1410800000000000000
+      internalID: 1449884724670009069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Drone Ship_18
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 91
+        width: 19
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 710f2084889c0da30800000000000000
+      internalID: 4238108836516524055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Drone Ship_19
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 91
+        width: 19
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8a1d21543da2c180800000000000000
+      internalID: -9096517857123165558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Drone Ship_20
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 91
+        width: 19
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2470bd47657f6dd70800000000000000
+      internalID: 9067706850456831810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Drone Ship_21
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 91
+        width: 19
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c024c94288f16a280800000000000000
+      internalID: -9032497333054717428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Drone Ship_22
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 91
+        width: 19
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 190ff77b37b6e4520800000000000000
+      internalID: 2688204172330791057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Drone Ship_23
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 91
+        width: 19
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75b4bbce5135c0e90800000000000000
+      internalID: -7058175162365293737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Drone Ship_24
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 42
+        width: 15
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7ce6f8bd2de8f1a0800000000000000
+      internalID: -6775404858746409860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Drone Ship_25
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 42
+        width: 15
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dff1538e1fdcbd150800000000000000
+      internalID: 5898534575838404605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Drone Ship_26
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 42
+        width: 15
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4db41824a5bb8f240800000000000000
+      internalID: 4825812997064707028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Drone Ship_27
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 42
+        width: 15
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69ef6ddd3a6c90650800000000000000
+      internalID: 6199704769156021910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Drone Ship_28
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 42
+        width: 15
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ca1f17edd5ff3020800000000000000
+      internalID: 2323846266160618185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Drone Ship_29
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 42
+        width: 15
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3dc2fbeecbdcd7170800000000000000
+      internalID: 8177918709717740755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Drone Ship_30
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 18
+        width: 15
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edc7d6919672dda20800000000000000
+      internalID: 3088668251797683422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Drone Ship_31
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 18
+        width: 15
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd67a3e3958f7f9a0800000000000000
+      internalID: -6199213299872401699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Drone Ship_32
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 18
+        width: 15
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3034d99ae1e75680800000000000000
+      internalID: -8766289751933964227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Drone Ship_33
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 18
+        width: 15
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ccbc2d6eb47ec950800000000000000
+      internalID: 6471238075802238148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Drone Ship_34
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 18
+        width: 15
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96e10aac8fe9fc840800000000000000
+      internalID: 5246586882298486377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Drone Ship_35
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 18
+        width: 15
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1aaf5613153a62910800000000000000
+      internalID: 1812315469179648673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 35b6b9d3785ed3743a6cd41c4969067b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Enemy Drone Ship_0: -1497906557410247511
+      Enemy Drone Ship_1: -3106964641843922878
+      Enemy Drone Ship_10: -4939882499930864117
+      Enemy Drone Ship_11: -8495295790510452372
+      Enemy Drone Ship_12: 6743749818222577242
+      Enemy Drone Ship_13: -2103170602812472603
+      Enemy Drone Ship_14: 4664404572253212845
+      Enemy Drone Ship_15: 6172545134224057964
+      Enemy Drone Ship_16: -740400873613176271
+      Enemy Drone Ship_17: 1449884724670009069
+      Enemy Drone Ship_18: 4238108836516524055
+      Enemy Drone Ship_19: -9096517857123165558
+      Enemy Drone Ship_2: 6232651892666987942
+      Enemy Drone Ship_20: 9067706850456831810
+      Enemy Drone Ship_21: -9032497333054717428
+      Enemy Drone Ship_22: 2688204172330791057
+      Enemy Drone Ship_23: -7058175162365293737
+      Enemy Drone Ship_24: -6775404858746409860
+      Enemy Drone Ship_25: 5898534575838404605
+      Enemy Drone Ship_26: 4825812997064707028
+      Enemy Drone Ship_27: 6199704769156021910
+      Enemy Drone Ship_28: 2323846266160618185
+      Enemy Drone Ship_29: 8177918709717740755
+      Enemy Drone Ship_3: -8160780885005054948
+      Enemy Drone Ship_30: 3088668251797683422
+      Enemy Drone Ship_31: -6199213299872401699
+      Enemy Drone Ship_32: -8766289751933964227
+      Enemy Drone Ship_33: 6471238075802238148
+      Enemy Drone Ship_34: 5246586882298486377
+      Enemy Drone Ship_35: 1812315469179648673
+      Enemy Drone Ship_4: -8493992052113331063
+      Enemy Drone Ship_5: 6424038454322624317
+      Enemy Drone Ship_6: -2171109344585111223
+      Enemy Drone Ship_7: 4869829949633917542
+      Enemy Drone Ship_8: -4181069283279525191
+      Enemy Drone Ship_9: -3184193045923672739
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

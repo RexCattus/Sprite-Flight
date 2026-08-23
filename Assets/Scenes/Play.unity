@@ -543,7 +543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf07924fa32b5c540abbe86cda1f4849, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Endless_BG
-  spd: 5
+  spd: 8
 --- !u!212 &552625220
 SpriteRenderer:
   serializedVersion: 2
@@ -593,7 +593,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -10
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -4885298761302449938, guid: 88e67e57d4ed0ba4fa9173d49ea587fb, type: 3}
+  m_Sprite: {fileID: -1403630818877167103, guid: a76862c8d0723f14dbabe9a4c320056b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -612,8 +612,8 @@ Transform:
   m_GameObject: {fileID: 552625218}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 50.688, y: 0.00000014901161, z: 0.01}
-  m_LocalScale: {x: 1.32, y: 1.32, z: 1.32}
+  m_LocalPosition: {x: 260.8, y: 0, z: 0.01}
+  m_LocalScale: {x: 13.039999, y: 13.039999, z: 13.039999}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -748,7 +748,7 @@ GameObject:
   - component: {fileID: 702777304}
   - component: {fileID: 702777303}
   - component: {fileID: 702777302}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bottom_Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -885,6 +885,7 @@ GameObject:
   m_Component:
   - component: {fileID: 919598104}
   - component: {fileID: 919598103}
+  - component: {fileID: 919598105}
   m_Layer: 0
   m_Name: ShipSpawner
   m_TagString: Untagged
@@ -924,6 +925,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &919598105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919598102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82fb089ec6a50ed4e8eb1a95135b9a03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DroneSpawner
+  dronePrefab: {fileID: 7842198720558319016, guid: 6a3aef9f96512904dac4219bb1d3b1f8, type: 3}
+  spawnInterval: 3.5
+  screenOffset: 1.5
 --- !u!1 &1461138317
 GameObject:
   m_ObjectHideFlags: 0
@@ -935,7 +951,7 @@ GameObject:
   - component: {fileID: 1461138320}
   - component: {fileID: 1461138319}
   - component: {fileID: 1461138318}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Top_Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1092,7 +1108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf07924fa32b5c540abbe86cda1f4849, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Endless_BG
-  spd: 5
+  spd: 8
 --- !u!212 &1485066533
 SpriteRenderer:
   serializedVersion: 2
@@ -1142,7 +1158,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -10
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -4885298761302449938, guid: 88e67e57d4ed0ba4fa9173d49ea587fb, type: 3}
+  m_Sprite: {fileID: -1403630818877167103, guid: a76862c8d0723f14dbabe9a4c320056b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1162,7 +1178,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.01}
-  m_LocalScale: {x: 1.32, y: 1.32, z: 1.32}
+  m_LocalScale: {x: 13.039999, y: 13.039999, z: 13.039999}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}

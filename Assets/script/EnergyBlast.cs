@@ -17,6 +17,10 @@ public class EnergyBlast : MonoBehaviour
             Rigidbody2D enemyRb = other.GetComponent<Rigidbody2D>();
             enemyRb.AddForce(PushDirection * pushForce, ForceMode2D.Impulse);
         }
+        if (other.CompareTag("Bullet"))
+        {
+            Destroy(other.gameObject);
+        }
     }
 
     public void TurnOff()

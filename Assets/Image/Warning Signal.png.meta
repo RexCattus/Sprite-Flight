@@ -1,19 +1,13 @@
 fileFormatVersion: 2
-guid: 41fdb1e0bb9f354449848ec9eab0fc6c
+guid: 855ea1af12626754aa5f7ddbaaff233d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2373119506172811869
-    second: Space_ship_2_0
+      213: -3403872737749775135
+    second: Warning Signal_0
   - first:
-      213: 9201207182755192374
-    second: Space_ship_2_1
-  - first:
-      213: -93863890920485891
-    second: Space_ship_2_2
-  - first:
-      213: 8486641023411907872
-    second: Space_ship_2_3
+      213: 6961838769092571432
+    second: Warning Signal_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +40,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -60,7 +54,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -84,7 +78,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -122,111 +116,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Space_ship_2_0
+      name: Warning Signal_0
       rect:
         serializedVersion: 2
-        x: 20
-        y: 8
-        width: 69
-        height: 48
+        x: 9
+        y: 18
+        width: 46
+        height: 45
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d5a1bf61e930fe020800000000000000
-      internalID: 2373119506172811869
+      spriteID: 1ecc9cd87c303c0d0800000000000000
+      internalID: -3403872737749775135
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Space_ship_2_1
+      name: Warning Signal_1
       rect:
         serializedVersion: 2
-        x: 109
-        y: 8
-        width: 69
-        height: 48
+        x: 329
+        y: 18
+        width: 46
+        height: 45
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 63e55e0ce2141bf70800000000000000
-      internalID: 9201207182755192374
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Space_ship_2_2
-      rect:
-        serializedVersion: 2
-        x: 198
-        y: 8
-        width: 69
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: dfbc27cd94782bef0800000000000000
-      internalID: -93863890920485891
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Space_ship_2_3
-      rect:
-        serializedVersion: 2
-        x: 287
-        y: 8
-        width: 69
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 02d69b0fb0b96c570800000000000000
-      internalID: 8486641023411907872
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Space_ship_2_4
-      rect:
-        serializedVersion: 2
-        x: 376
-        y: 8
-        width: 69
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4a0382f2dd940614b9cf510bed3cb79a
-      internalID: 1369426888
+      spriteID: 8213e4f997b6d9060800000000000000
+      internalID: 6961838769092571432
       vertices: []
       indices: 
       edges: []
@@ -235,7 +163,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 4afef071201aea04f807b000fe4ea858
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -243,15 +171,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      Space_ship_2_0: 2373119506172811869
-      Space_ship_2_1: 9201207182755192374
-      Space_ship_2_2: -93863890920485891
-      Space_ship_2_3: 8486641023411907872
-      Space_ship_2_4: 1369426888
+      Warning Signal_0: -3403872737749775135
+      Warning Signal_1: 6961838769092571432
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -5528,8 +5528,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb841671c8b65044a8fac7f0a1f055e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InstantJumpSkill
-  skillName: 
-  coolDownTime: 0
+  skillName: Instant Jump
+  coolDownTime: 5
 --- !u!1 &6873410316086022408
 GameObject:
   m_ObjectHideFlags: 0

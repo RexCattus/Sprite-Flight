@@ -19,12 +19,12 @@ TagManager:
   - UI
   - wall
   - asteroid
-  - Unwalkable
-  - Bullet
+  - WallBounce
+  - PlayerBullet
   - Shield
   - EnergyBurst
-  - 
-  - 
+  - EnemyShip
+  - EnemyBullet
   - 
   - 
   - 

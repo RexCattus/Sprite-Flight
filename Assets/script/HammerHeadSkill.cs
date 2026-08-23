@@ -19,8 +19,20 @@ public class HammerHeadSkill : BaseSkill
         {
             if (SkillPrefab.activeSelf)
             {
-                Destroy(other.gameObject);
-                other.gameObject.GetComponent<Obstacle>().BreakBigRock();
+                Obstacle rock = other.gameObject.GetComponent<Obstacle>();
+                if (rock != null)
+                {
+                    rock.BreakBigRock();
+                    Destroy(other.gameObject);
+                    return;
+                }
+
+                DroneEnemy drone = other.gameObject.GetComponent<DroneEnemy>();
+                if (drone != null)
+                {
+                    drone.Die();
+                    return;
+                }
             }
         }
     }

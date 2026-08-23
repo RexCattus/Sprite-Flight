@@ -20293,6 +20293,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75c9c808464cb5b46ac1b60df4e04f10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HammerHeadSkill
-  skillName: 
+  skillName: Unbreakable
   coolDownTime: 0
   SkillPrefab: {fileID: 3073960731093703379}
