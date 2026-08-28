@@ -14,13 +14,13 @@ public class ShopManager : MonoBehaviour
 
     // Khai báo cho Máy bay số 2
     private Button btnShip2;
-    private int ship2Price = 200;
+    [SerializeField] private int ship2Price = 200;
 
     private Button btnShip3;
-    private int ship3Price = 300;
+    [SerializeField] private int ship3Price = 300;
 
     private Button btnShip4;
-    private int ship4Price = 400;
+    [SerializeField] private int ship4Price = 0;
 
     void Start()
     {

@@ -119,6 +119,72 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &203443505
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 203443507}
+  - component: {fileID: 203443506}
+  m_Layer: 0
+  m_Name: ObjectPooler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &203443506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203443505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 527b13da1146ac24f8207aafb9bc1700, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectPooler
+  pools:
+  - tag: Bullet
+    prefab: {fileID: 5249787664071421739, guid: 32eb2dbe96e173b42811f0395d15a6eb, type: 3}
+    size: 20
+  - tag: Bullet_Enemy
+    prefab: {fileID: 7203708281807404169, guid: af4503c83c887eb408db920a56839ddc, type: 3}
+    size: 20
+  - tag: Fuel
+    prefab: {fileID: 1301042684615131262, guid: b3b82a61256575b4e9f7577c5fe6e9ca, type: 3}
+    size: 7
+  - tag: Shield
+    prefab: {fileID: 4583185382343433217, guid: 997d889c1ac5aa045acaebbf0c8542e8, type: 3}
+    size: 5
+  - tag: Rock1
+    prefab: {fileID: 518278763029479385, guid: 50e71c9bbf5f660488d24ace59a9c578, type: 3}
+    size: 5
+  - tag: Rock2
+    prefab: {fileID: 6982814360722797370, guid: 76c9f42e8ba309f4f874d9b8c48822d0, type: 3}
+    size: 5
+  - tag: Rock3
+    prefab: {fileID: 5692117577203125966, guid: 587a55a543e591a4698af8c671a643d4, type: 3}
+    size: 5
+--- !u!4 &203443507
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203443505}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.17594, y: -0.67337, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &286099870
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,6 +234,7 @@ MonoBehaviour:
   gioihanY: 12
   vitrispawnX: 32
   fuelTimeSpawn: 4.5
+  shieldTimeSpawn: 10
 --- !u!4 &286099872
 Transform:
   m_ObjectHideFlags: 0
@@ -1435,3 +1502,4 @@ SceneRoots:
   - {fileID: 552625221}
   - {fileID: 607125591}
   - {fileID: 919598104}
+  - {fileID: 203443507}

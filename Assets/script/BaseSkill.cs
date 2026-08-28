@@ -4,7 +4,7 @@ public abstract class BaseSkill : MonoBehaviour
 {
     public string skillName;
     public float coolDownTime;
-    protected float currentCoolDown;
+    [SerializeField] protected float currentCoolDown;
 
     protected Rigidbody2D rb;
 

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private float speed = 15f;
+    [SerializeField] private float speed = 15f;
     PlayerController playerController;
     [SerializeField] private AudioClip RockExplosionClip;
     [SerializeField] private AudioClip ShipExplosionClip;
@@ -32,12 +32,12 @@ public class Bullet : MonoBehaviour
             {
                 playerController.score += 10;
             }
-            if (RockExplosionClip != null)
+            if (RockExplosionClip != null && Camera.main != null)
             {
                 AudioSource.PlayClipAtPoint(RockExplosionClip, Camera.main.transform.position);
             }
             rock.BreakBigRock();
-            Destroy(gameObject);
+            gameObject.SetActive(false); // Cho object pooling
             return;
         }
 
@@ -48,13 +48,12 @@ public class Bullet : MonoBehaviour
             {
                 playerController.score += 10;
             }
-            if (ShipExplosionClip != null)
+            if (ShipExplosionClip != null && Camera.main != null)
             {
                 AudioSource.PlayClipAtPoint(ShipExplosionClip, Camera.main.transform.position);
             }
-            playerController.score += 10;
             drone.Die();
-            Destroy(gameObject);
+            gameObject.SetActive(false);
             return;
         }
 
@@ -65,11 +64,11 @@ public class Bullet : MonoBehaviour
             {
                 player.Die();
             }
-            if (ShipExplosionClip != null)
+            if (ShipExplosionClip != null && Camera.main != null)
             {
                 AudioSource.PlayClipAtPoint(ShipExplosionClip, Camera.main.transform.position);
             }
-            Destroy(gameObject);
+            gameObject.SetActive(false);
             return;
         }
     }

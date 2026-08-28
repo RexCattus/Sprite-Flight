@@ -6,7 +6,7 @@ public class Shield : MonoBehaviour
     public float speed = 3f;
     public float spinSpeed = 30f;
 
-    void Start()
+    void OnEnable()
     {
 
         // Bỏ qua va chạm với các object có tag "wall" hoặc "Wall"
@@ -31,7 +31,8 @@ public class Shield : MonoBehaviour
         // Tự hủy khi vượt ngoài giới hạn màn hình
         if (transform.position.x < -35f || transform.position.x > 45f || transform.position.y < -12.5f || transform.position.y > 12.5f)
         {
-            Destroy(gameObject);
+            // Destroy(gameObject);
+            gameObject.SetActive(false); // Cho object pooling
         }
 
     }

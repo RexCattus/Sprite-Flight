@@ -137,12 +137,12 @@ TextureImporter:
       name: Ship_4_Skill_0
       rect:
         serializedVersion: 2
-        x: 92
-        y: 79
-        width: 26
-        height: 26
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 0
+        y: 0
+        width: 200
+        height: 184
+      alignment: 9
+      pivot: {x: 0.5251189, y: 0.4994099}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -159,12 +159,12 @@ TextureImporter:
       name: Ship_4_Skill_1
       rect:
         serializedVersion: 2
-        x: 289
-        y: 75
-        width: 32
-        height: 34
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 200
+        y: 0
+        width: 200
+        height: 184
+      alignment: 9
+      pivot: {x: 0.5251189, y: 0.4994099}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -181,12 +181,12 @@ TextureImporter:
       name: Ship_4_Skill_2
       rect:
         serializedVersion: 2
-        x: 482
-        y: 71
-        width: 46
-        height: 42
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 400
+        y: 0
+        width: 200
+        height: 184
+      alignment: 9
+      pivot: {x: 0.5251189, y: 0.4994099}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -203,12 +203,12 @@ TextureImporter:
       name: Ship_4_Skill_3
       rect:
         serializedVersion: 2
-        x: 680
-        y: 67
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 600
+        y: 0
+        width: 200
+        height: 184
+      alignment: 9
+      pivot: {x: 0.5251189, y: 0.4994099}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -225,12 +225,12 @@ TextureImporter:
       name: Ship_4_Skill_4
       rect:
         serializedVersion: 2
-        x: 870
-        y: 62
-        width: 70
-        height: 60
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 800
+        y: 0
+        width: 200
+        height: 184
+      alignment: 9
+      pivot: {x: 0.5251189, y: 0.4994099}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -247,12 +247,12 @@ TextureImporter:
       name: Ship_4_Skill_5
       rect:
         serializedVersion: 2
-        x: 1063
-        y: 53
-        width: 84
-        height: 78
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1001
+        y: 0
+        width: 200
+        height: 184
+      alignment: 9
+      pivot: {x: 0.5251189, y: 0.4994099}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -269,12 +269,12 @@ TextureImporter:
       name: Ship_4_Skill_6
       rect:
         serializedVersion: 2
-        x: 1249
-        y: 41
-        width: 112
-        height: 102
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1200
+        y: 0
+        width: 200
+        height: 184
+      alignment: 9
+      pivot: {x: 0.5251189, y: 0.4994099}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -291,12 +291,12 @@ TextureImporter:
       name: Ship_4_Skill_7
       rect:
         serializedVersion: 2
-        x: 1438
-        y: 28
-        width: 134
-        height: 128
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1400
+        y: 0
+        width: 200
+        height: 184
+      alignment: 9
+      pivot: {x: 0.5251189, y: 0.4994099}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -305,6 +305,116 @@ TextureImporter:
       bones: []
       spriteID: 300972686c8c79547814c31d90cded4e
       internalID: -7666358327696929892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ship_4_Skill_8
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 0
+        width: 200
+        height: 184
+      alignment: 9
+      pivot: {x: 0.5251189, y: 0.4994099}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2b6877b389d89940af7338c34a0e7fd
+      internalID: 1740160515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ship_4_Skill_9
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 0
+        width: 200
+        height: 184
+      alignment: 9
+      pivot: {x: 0.5251189, y: 0.4994099}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d38a9d6d72f1074e8d002fb6642d03e
+      internalID: -135834743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ship_4_Skill_10
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 0
+        width: 200
+        height: 184
+      alignment: 9
+      pivot: {x: 0.5251189, y: 0.4994099}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fbe738f898a4ca4b9fef888112d00bb
+      internalID: -827680629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ship_4_Skill_11
+      rect:
+        serializedVersion: 2
+        x: 2200
+        y: 0
+        width: 200
+        height: 184
+      alignment: 9
+      pivot: {x: 0.5251189, y: 0.4994099}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e47c805bbede7e4a9000e70029cb9ea
+      internalID: 172649929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ship_4_Skill_12
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 0
+        width: 200
+        height: 184
+      alignment: 9
+      pivot: {x: 0.5251189, y: 0.4994099}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66a5613e4aadd8c408b7da92927590e6
+      internalID: -294164557
       vertices: []
       indices: 
       edges: []
@@ -323,16 +433,21 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":5.0,"y":1.0},"gridSpriteSize":{"x":320.0,"y":184.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":13.0,"y":1.0},"gridSpriteSize":{"x":200.0,"y":184.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.525118887424469,"y":0.49940991401672366},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Ship_4_Skill_0: 3562532062065174948
       Ship_4_Skill_1: -4409216980579758259
+      Ship_4_Skill_10: -827680629
+      Ship_4_Skill_11: 172649929
+      Ship_4_Skill_12: -294164557
       Ship_4_Skill_2: 1298837025829256443
       Ship_4_Skill_3: -9016836228939515919
       Ship_4_Skill_4: -2712887765199366250
       Ship_4_Skill_5: 1468045498066109860
       Ship_4_Skill_6: -7984178051160561396
       Ship_4_Skill_7: -7666358327696929892
+      Ship_4_Skill_8: 1740160515
+      Ship_4_Skill_9: -135834743
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

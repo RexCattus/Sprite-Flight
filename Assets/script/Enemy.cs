@@ -45,21 +45,32 @@ public class DroneEnemy : MonoBehaviour
         }
 
         // Phóng về phía trước
+        if (rb == null) rb = GetComponent<Rigidbody2D>();
+        
         if (rb != null)
         {
             rb.linearVelocity = moveDirection * moveSpeed;
         }
 
-        // Bắt đầu 3 phát
+        isDead = false;
         StartCoroutine(ShootBurstRoutine());
 
         // Tự hủy sau khi bay hết quãng đường
-        Destroy(gameObject, lifeTime);
+        // Thay vì Destroy, ta dùng Invoke để tắt đi nếu có dùng Pool cho Enemy
+        Invoke("DisableEnemy", lifeTime);
+    }
+
+    private void DisableEnemy()
+    {
+        if (gameObject.activeInHierarchy)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     private IEnumerator ShootBurstRoutine()
     {
-        // Chờ 0.2s sau khi xuất hiện rồi mới bắt đầu bắn
+        // Chờ 0.2s sau khi xuất hiện rồi mới bắn
         yield return new WaitForSeconds(0.2f);
 
         for (int i = 0; i < burstCount; i++)
@@ -72,12 +83,12 @@ public class DroneEnemy : MonoBehaviour
     }
 
     private void Shoot()
-{
-    if (bulletPrefab != null && firePoint != null)
     {
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        if (firePoint != null)
+        {
+            ObjectPooler.Instance.SpawnFromPool("Bullet_Enemy", firePoint.position, firePoint.rotation);
+        }
     }
-}
 
     // Cơ chế phân rã mảnh vỡ
     public void Die()
@@ -97,7 +108,7 @@ public class DroneEnemy : MonoBehaviour
         {
             if (part == transform) continue; // Bỏ qua object cha
 
-            part.SetParent(null); // Tách khỏi cha để không bị Destroy ngay lập tức
+            part.SetParent(null); // Tách khỏi cha để không bị Destroy
 
             // Gắn Rigidbody2D cho từng mảnh để tác dụng lực vật lý
             Rigidbody2D partRb = part.gameObject.AddComponent<Rigidbody2D>();

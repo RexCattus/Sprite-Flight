@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     private float rockTimeCount = 0f;
     private float fuelTimeCount = 0f;
     private float shieldTimeCount = 0f;
-    private float shieldTimeSpawn = 10f; // Tần suất xuất hiện khiên
+    [SerializeField] private float shieldTimeSpawn = 10f; // Tần suất xuất hiện khiên
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -75,18 +75,42 @@ public class GameManager : MonoBehaviour
     {
         float y = Random.Range(-gioihanY, gioihanY);
         Vector3 vitriSpawn = new Vector3(vitrispawnX, y, 0f);
-        Instantiate(rock[Random.Range(0, rock.Length)], vitriSpawn, Quaternion.identity);
+        // Instantiate(rock[Random.Range(0, rock.Length)], vitriSpawn, Quaternion.identity);
+
+        int tyLe = Random.Range(1, 101);
+        
+        string rockTag = "";
+        // Chia Tỉ lệ
+        if (tyLe <= 45) 
+        {
+            // Từ 1 đến 45 (Chiếm 45%)
+            rockTag = "Rock0"; 
+        }
+        else if (tyLe <= 90) 
+        {
+            // Từ 46 đến 90 (Chiếm 45%)
+            rockTag = "Rock1"; 
+        }
+        else 
+        {
+            // Từ 91 đến 100 (Chiếm 10% còn lại)
+            rockTag = "Rock2"; 
+        }
+
+        ObjectPooler.Instance.SpawnFromPool(rockTag, vitriSpawn, Quaternion.identity);
     }
     void FuelSpawn()
     {
         float y = Random.Range(-gioihanY, gioihanY);
         Vector3 vitriSpawn = new Vector3(vitrispawnX, y, 0f);
-        Instantiate(Fuel, vitriSpawn, Quaternion.identity);
+        // Instantiate(Fuel, vitriSpawn, Quaternion.identity);
+        ObjectPooler.Instance.SpawnFromPool("Fuel", vitriSpawn, Quaternion.identity);
     }
     void ShieldSpawn()
     {
         float y = Random.Range(-gioihanY, gioihanY);
         Vector3 vitriSpawn = new Vector3(vitrispawnX, y, 0f);
-        Instantiate(Shield, vitriSpawn, Quaternion.identity);
+        // Instantiate(Shield, vitriSpawn, Quaternion.identity);
+        ObjectPooler.Instance.SpawnFromPool("Shield", vitriSpawn, Quaternion.identity);
     }
 }

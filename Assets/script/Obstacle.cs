@@ -20,8 +20,14 @@ public class Obstacle : MonoBehaviour
 
     Rigidbody2D rb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void OnEnable()
     {
+        if(rb != null)
+        {
+            rb.linearVelocity = Vector2.zero; // Xóa lực bay cũ đi
+            rb.angularVelocity = 0f;
+        }
+
         float RandomSize = Random.Range(minSize, maxSize);
         transform.localScale = new Vector3(RandomSize, RandomSize, 1);
 
@@ -40,13 +46,15 @@ public class Obstacle : MonoBehaviour
         rb.AddForce(Vector3.left * Time.deltaTime * 6);
         if (transform.position.x < -35f || transform.position.x > 45f || transform.position.y < -12.5f || transform.position.y > 12.5f)
         {
-            Destroy(gameObject);
+            // Destroy(gameObject);
+            gameObject.SetActive(false); // Cho object pooling
         }
         if (rb.linearVelocity.magnitude > maxSpd)
         {
             rb.linearVelocity = rb.linearVelocity.normalized * maxSpd;
         }
     }
+
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -59,7 +67,8 @@ public class Obstacle : MonoBehaviour
             if (HasActiveShield(collision.gameObject))
             {
                 BreakBigRock();
-                Destroy(gameObject);
+                // Destroy(gameObject);
+                gameObject.SetActive(false);
                 return;
             }
             PlayerController player = collision.gameObject.GetComponent<PlayerController>();
@@ -98,6 +107,7 @@ public class Obstacle : MonoBehaviour
                 }
             }
         }
-        Destroy(gameObject);
+        // Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

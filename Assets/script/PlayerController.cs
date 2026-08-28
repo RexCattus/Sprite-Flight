@@ -117,7 +117,8 @@ public class PlayerController : MonoBehaviour
         {
             currentFuel = Mathf.Min(currentFuel + 35f, maxFuel);
             UpdateFuelUI();
-            Destroy(other.gameObject);
+            // Destroy(other.gameObject);
+            other.gameObject.SetActive(false); 
         }
         else if (other.gameObject.CompareTag("Shield"))
         {
@@ -128,7 +129,7 @@ public class PlayerController : MonoBehaviour
             }
             shieldCoroutine = StartCoroutine(ActivateShield(10f));
             SFXSound.PlayOneShot(ShieldSound);
-            Destroy(other.gameObject);
+            other.gameObject.SetActive(false);
         }
     }
 
@@ -174,7 +175,7 @@ public class PlayerController : MonoBehaviour
                     EngineSound.Play();
                 }
 
-                currentFuel -= Time.deltaTime * 10f;
+                currentFuel -= Time.deltaTime * 3f;
                 currentFuel = Mathf.Clamp(currentFuel, 0f, maxFuel);
                 UpdateFuelUI();
             }
@@ -230,7 +231,9 @@ public class PlayerController : MonoBehaviour
     {
         if (Ammo != null && currentFuel >= 10f)
         {
-            Instantiate(Ammo, ShootLocation.position, ShootLocation.rotation);
+            //Instantiate(Ammo, ShootLocation.position, ShootLocation.rotation);
+            ObjectPooler.Instance.SpawnFromPool("Bullet", ShootLocation.position, ShootLocation.rotation);
+
             currentFuel -= 3f;
             UpdateFuelUI();
             SFXSound.PlayOneShot(ShootSound);
