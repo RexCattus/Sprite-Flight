@@ -33,12 +33,14 @@ public class ShopManager : MonoBehaviour
         btnShip2 = root.Q<Button>("btnShip2");
         btnShip3 = root.Q<Button>("btnShip3");
         btnShip4 = root.Q<Button>("btnShip4");
-        if(txtNote != null) txtNote.text = "";
+        if (txtNote != null) txtNote.text = "";
 
         UpdateCoinUI();
         UpdateAllButtons();
 
-        btnBack.clicked += () => SceneManager.LoadScene("Menu");
+        //btnBack.clicked += () => SceneManager.LoadScene("Menu");
+        btnBack.clicked += () => SceneTransition.Instance.LoadScene("Menu");
+
         btnShip1.clicked += OnShip1Clicked;
         btnShip2.clicked += OnShip2Clicked;
         btnShip3.clicked += OnShip3Clicked;
@@ -79,7 +81,7 @@ public class ShopManager : MonoBehaviour
                 playerCoins -= ship2Price;
                 PlayerPrefs.SetInt("PlayerCoins", playerCoins);
                 txtNote.text = "";
-                
+
 
                 // Mở khóa 
                 PlayerPrefs.SetInt("Ship2_Unlocked", 1);
@@ -118,7 +120,7 @@ public class ShopManager : MonoBehaviour
                 playerCoins -= ship3Price;
                 PlayerPrefs.SetInt("PlayerCoins", playerCoins);
                 txtNote.text = "";
-                
+
                 PlayerPrefs.SetInt("Ship3_Unlocked", 1);
                 PlayerPrefs.Save();
 
@@ -144,33 +146,33 @@ public class ShopManager : MonoBehaviour
 
     void OnShip4Clicked()
     {
-        int isUnlocked = PlayerPrefs.GetInt("Ship4_Unlocked",0);
+        int isUnlocked = PlayerPrefs.GetInt("Ship4_Unlocked", 0);
 
         if (isUnlocked == 0)
         {
             if (playerCoins >= ship4Price)
             {
-            playerCoins -= ship4Price;
-            PlayerPrefs.SetInt("PlayerCoins",playerCoins);
-            txtNote.text = "";
+                playerCoins -= ship4Price;
+                PlayerPrefs.SetInt("PlayerCoins", playerCoins);
+                txtNote.text = "";
 
-            PlayerPrefs.SetInt("Ship4_Unlocked",1);
-            PlayerPrefs.Save();
+                PlayerPrefs.SetInt("Ship4_Unlocked", 1);
+                PlayerPrefs.Save();
 
-            UpdateCoinUI();
-            UpdateAllButtons();
-            Debug.Log("Đã mua thành công");
-            
+                UpdateCoinUI();
+                UpdateAllButtons();
+                Debug.Log("Đã mua thành công");
+
             }
             else
             {
                 Debug.Log("Không đủ tiền!");
-                txtNote.text= "Không đủ tiền";
+                txtNote.text = "Không đủ tiền";
             }
         }
-        else 
+        else
         {
-            PlayerPrefs.SetInt("SelectedShip",4);
+            PlayerPrefs.SetInt("SelectedShip", 4);
             PlayerPrefs.Save();
 
             UpdateAllButtons();
@@ -185,7 +187,7 @@ public class ShopManager : MonoBehaviour
         {
             btnShip1.text = "Selected";
         }
-        else 
+        else
         {
             btnShip1.text = "Select";
         }

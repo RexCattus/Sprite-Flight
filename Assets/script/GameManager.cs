@@ -7,9 +7,6 @@ public class GameManager : MonoBehaviour
 
     public UIDocument UIdoc; // Tham chiếu đến UI Document chứa Text để hiển thị điểm số
     private Label MaxScore;
-    public GameObject[] rock;
-    public GameObject Shield;
-    public GameObject Fuel;
     public float timeSpawn = 1.5f;
     public float gioihanY = 6.5f;
     public float vitrispawnX = 20f;
@@ -78,23 +75,23 @@ public class GameManager : MonoBehaviour
         // Instantiate(rock[Random.Range(0, rock.Length)], vitriSpawn, Quaternion.identity);
 
         int tyLe = Random.Range(1, 101);
-        
+
         string rockTag = "";
         // Chia Tỉ lệ
-        if (tyLe <= 45) 
+        if (tyLe <= 45)
         {
             // Từ 1 đến 45 (Chiếm 45%)
-            rockTag = "Rock0"; 
+            rockTag = "Rock0";
         }
-        else if (tyLe <= 90) 
+        else if (tyLe <= 90)
         {
             // Từ 46 đến 90 (Chiếm 45%)
-            rockTag = "Rock1"; 
+            rockTag = "Rock1";
         }
-        else 
+        else
         {
             // Từ 91 đến 100 (Chiếm 10% còn lại)
-            rockTag = "Rock2"; 
+            rockTag = "Rock2";
         }
 
         ObjectPooler.Instance.SpawnFromPool(rockTag, vitriSpawn, Quaternion.identity);

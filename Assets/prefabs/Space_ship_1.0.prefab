@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7889546063739068297}
   - component: {fileID: 3742277027935452528}
   - component: {fileID: 2498066239633353225}
+  - component: {fileID: 2845281868956929597}
   m_Layer: 10
   m_Name: Shield
   m_TagString: Shield
@@ -29,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.005037839, y: 0, z: 0}
-  m_LocalScale: {x: 1.438287, y: 1.438287, z: 1.4382871}
+  m_LocalScale: {x: 1.74, y: 1.74, z: 1.74}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8477482913638457026}
@@ -145,12 +146,29 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.018230041, y: 0}
-  m_Radius: 0.38281566
+  m_Offset: {x: -0.0009260904, y: 0}
+  m_Radius: 0.32760772
+--- !u!114 &2845281868956929597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 701674837584306599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c4703affe3c5be49a7b542d9440022b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerShield
+  ImpactSound:
+  - {fileID: 8300000, guid: 21438e7e24d5e714aa1be35141d4ff16, type: 3}
+  - {fileID: 8300000, guid: e34b06322ce2b564799ee4b7f174b991, type: 3}
+  - {fileID: 8300000, guid: 13c34a27f456b5a468c1aaf7908e8d33, type: 3}
+  - {fileID: 8300000, guid: 26c69e2bc6b9b2243a8a644e75151ac6, type: 3}
 --- !u!1 &1386515784385646939
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,6 +451,7 @@ MonoBehaviour:
   SFXSound: {fileID: 71895776292353340}
   ShootSound: {fileID: 8300000, guid: b6a5d918e302f894a85b615647dc8bab, type: 3}
   ShieldSound: {fileID: 8300000, guid: 1782adc45cae91b4e85e594cf18a248c, type: 3}
+  ShipExplode: {fileID: 8300000, guid: 5d75a337a990bc0469f03f0a2eb556ad, type: 3}
   maxFuel: 100
   currentFuel: 100
 --- !u!82 &2318849586964572214

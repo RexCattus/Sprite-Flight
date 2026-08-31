@@ -9,11 +9,16 @@ public class DroneEnemy : MonoBehaviour
 
     [Header("Shooting")]
     [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private Transform firePoint;     
+    [SerializeField] private Transform firePoint;
+    [SerializeField] private AudioClip shootSound;
+    [Range(0f, 1f)][SerializeField] private float shootSoudVolume;
     [SerializeField] private int burstCount = 3;      // Số lượng đạn bắn ra
     [SerializeField] private float burstInterval = 0.12f; // Khoảng cách giữa các phát bắn
 
     [Header("Explosion & Debris")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip explodeShip;
+    [Range(0f, 1f)][SerializeField] private float explodeShipVolume;
     [SerializeField] private float scatterForce = 5f;
     [SerializeField] private float torqueForce = 20f;
     [SerializeField] private float debrisLifeTime = 2.5f;
@@ -35,18 +40,18 @@ public class DroneEnemy : MonoBehaviour
         if (player != null)
         {
             moveDirection = (player.transform.position - transform.position).normalized;
-            
+
             //  Xoay đầu tàu về hướng mục tiêu
-            transform.right = -moveDirection; 
+            transform.right = -moveDirection;
         }
         else
         {
-            moveDirection = Vector2.down;
+            moveDirection = Vector2.right;
         }
 
         // Phóng về phía trước
         if (rb == null) rb = GetComponent<Rigidbody2D>();
-        
+
         if (rb != null)
         {
             rb.linearVelocity = moveDirection * moveSpeed;
@@ -84,9 +89,11 @@ public class DroneEnemy : MonoBehaviour
 
     private void Shoot()
     {
-        if (firePoint != null)
+        GameObject player = GameObject.FindWithTag("Player");
+        if (firePoint != null && player != null)
         {
             ObjectPooler.Instance.SpawnFromPool("Bullet_Enemy", firePoint.position, firePoint.rotation);
+            audioSource.PlayOneShot(shootSound, shootSoudVolume);
         }
     }
 
@@ -100,6 +107,8 @@ public class DroneEnemy : MonoBehaviour
         {
             Instantiate(explosionVFX, transform.position, Quaternion.identity);
         }
+
+        AudioSource.PlayClipAtPoint(explodeShip, Camera.main.transform.position, explodeShipVolume);
 
         // Duyệt qua các bộ phận con
         Transform[] parts = GetComponentsInChildren<Transform>();
@@ -134,7 +143,7 @@ public class DroneEnemy : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
-       {
+        {
             if (HasActiveShield(collision.gameObject))
             {
                 Die();

@@ -33,7 +33,7 @@ public class DroneSpawner : MonoBehaviour
         float camWidth = camHeight * mainCamera.aspect;
         Vector3 camPos = mainCamera.transform.position;
 
-        // 4 góc ngoài tầm nhìn kết hợp screenOffset
+        // 4 góc ngoài rìa + screenOffset
         Vector3[] corners = new Vector3[]
         {
             //new Vector3(camPos.x - camWidth - screenOffset, camPos.y - camHeight - screenOffset, 0f), // Dưới Trái

@@ -17,19 +17,21 @@ public class MainMenu : MonoBehaviour
         Button playBtn = uiDoc.rootVisualElement.Q<Button>("Play");
         if (playBtn != null)
         {
-            playBtn.clicked += () => SceneManager.LoadScene("Play");
+            // playBtn.clicked += () => SceneManager.LoadScene("Play");
+            playBtn.clicked += () => SceneTransition.Instance.LoadScene("Play");
         }
 
         Button shopBtn = uiDoc.rootVisualElement.Q<Button>("Shop");
         if (shopBtn != null)
         {
-            shopBtn.clicked += () => SceneManager.LoadScene("Shop");
+            //shopBtn.clicked += () => SceneManager.LoadScene("Shop");
+            shopBtn.clicked += () => SceneTransition.Instance.LoadScene("Shop");
         }
 
         Button quitBtn = uiDoc.rootVisualElement.Q<Button>("Quit");
         if (quitBtn != null)
         {
-            quitBtn.clicked += () => 
+            quitBtn.clicked += () =>
             {
                 Debug.Log("Quit game");
                 Application.Quit();

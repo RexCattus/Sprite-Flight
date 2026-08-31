@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
     public AudioSource SFXSound;
     public AudioClip ShootSound;
     public AudioClip ShieldSound;
+    public AudioClip ShipExplode;
 
     [Header("Fuel System")]
     public float maxFuel = 100f;
@@ -53,12 +54,12 @@ public class PlayerController : MonoBehaviour
 
         if (UIdoc != null && UIdoc.rootVisualElement != null)
         {
-            scoreText = UIdoc.rootVisualElement.Q<Label>("ScoreLabel"); 
-            Restart = UIdoc.rootVisualElement.Q<Button>("Restart"); 
+            scoreText = UIdoc.rootVisualElement.Q<Label>("ScoreLabel");
+            Restart = UIdoc.rootVisualElement.Q<Button>("Restart");
             if (Restart != null)
             {
-                Restart.style.display = DisplayStyle.None; 
-                Restart.clicked += RestartGame; 
+                Restart.style.display = DisplayStyle.None;
+                Restart.clicked += RestartGame;
             }
             fuelFill = UIdoc.rootVisualElement.Q<VisualElement>("Fuel_Fill");
         }
@@ -101,11 +102,18 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         MovePlayer();
-    } 
-    
+    }
+
     public void Die()
     {
         Instantiate(explosionEffect, transform.position, transform.rotation);
+        AudioSource.PlayClipAtPoint(ShipExplode, Camera.main.transform.position);
+
+        if (CameraShake.Instance != null)
+        {
+            CameraShake.Instance.Shake(0.3f, 0.25f);
+        }
+
         Restart.style.display = DisplayStyle.Flex;
         gameManager.end_work(score);
         Destroy(gameObject);
@@ -118,7 +126,7 @@ public class PlayerController : MonoBehaviour
             currentFuel = Mathf.Min(currentFuel + 35f, maxFuel);
             UpdateFuelUI();
             // Destroy(other.gameObject);
-            other.gameObject.SetActive(false); 
+            other.gameObject.SetActive(false);
         }
         else if (other.gameObject.CompareTag("Shield"))
         {

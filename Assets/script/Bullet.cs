@@ -5,7 +5,6 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float speed = 15f;
     PlayerController playerController;
     [SerializeField] private AudioClip RockExplosionClip;
-    [SerializeField] private AudioClip ShipExplosionClip;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -26,7 +25,7 @@ public class Bullet : MonoBehaviour
     private void HandleHit(GameObject hitTarget)
     {
         // Thiên thạch
-        if (hitTarget.TryGetComponent<Obstacle>(out Obstacle rock))
+        if (hitTarget.TryGetComponent<Obstacle>(out Obstacle rock)) // tìm Component Obstacle rồi đưa vào một biến mới là rock 
         {
             if (playerController != null)
             {
@@ -48,25 +47,17 @@ public class Bullet : MonoBehaviour
             {
                 playerController.score += 10;
             }
-            if (ShipExplosionClip != null && Camera.main != null)
-            {
-                AudioSource.PlayClipAtPoint(ShipExplosionClip, Camera.main.transform.position);
-            }
             drone.Die();
             gameObject.SetActive(false);
             return;
         }
 
-        // Player (Enemy ship)
+        // Player ( từ Enemy ship)
         if (hitTarget.TryGetComponent<PlayerController>(out PlayerController player))
         {
-            if (!HasActiveShield(hitTarget) && playerController != null)
+            if (!HasActiveShield(hitTarget))
             {
                 player.Die();
-            }
-            if (ShipExplosionClip != null && Camera.main != null)
-            {
-                AudioSource.PlayClipAtPoint(ShipExplosionClip, Camera.main.transform.position);
             }
             gameObject.SetActive(false);
             return;

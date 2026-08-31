@@ -19722,6 +19722,7 @@ GameObject:
   - component: {fileID: 3540225767715256431}
   - component: {fileID: 270085306349632938}
   - component: {fileID: 205485490416115330}
+  - component: {fileID: 2583345472828142012}
   m_Layer: 10
   m_Name: Shield
   m_TagString: Shield
@@ -19739,7 +19740,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.005037839, y: 0, z: 0}
-  m_LocalScale: {x: 1.438287, y: 1.438287, z: 1.4382871}
+  m_LocalScale: {x: 1.96, y: 1.96, z: 1.96}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 630867420459554063}
@@ -19859,8 +19860,25 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.014441152, y: 0}
-  m_Radius: 0.38660458
+  m_Offset: {x: -0.0022548528, y: 0}
+  m_Radius: 0.3271964
+--- !u!114 &2583345472828142012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6729973741443109246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c4703affe3c5be49a7b542d9440022b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerShield
+  ImpactSound:
+  - {fileID: 8300000, guid: 21438e7e24d5e714aa1be35141d4ff16, type: 3}
+  - {fileID: 8300000, guid: e34b06322ce2b564799ee4b7f174b991, type: 3}
+  - {fileID: 8300000, guid: 13c34a27f456b5a468c1aaf7908e8d33, type: 3}
+  - {fileID: 8300000, guid: 26c69e2bc6b9b2243a8a644e75151ac6, type: 3}
 --- !u!1 &8539582302700914624
 GameObject:
   m_ObjectHideFlags: 0
@@ -20036,6 +20054,7 @@ MonoBehaviour:
   SFXSound: {fileID: 3493708801936430787}
   ShootSound: {fileID: 8300000, guid: b6a5d918e302f894a85b615647dc8bab, type: 3}
   ShieldSound: {fileID: 8300000, guid: 1782adc45cae91b4e85e594cf18a248c, type: 3}
+  ShipExplode: {fileID: 8300000, guid: 5d75a337a990bc0469f03f0a2eb556ad, type: 3}
   maxFuel: 100
   currentFuel: 100
 --- !u!82 &1750232883001713614
@@ -20295,4 +20314,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HammerHeadSkill
   skillName: Unbreakable
   coolDownTime: 0
+  currentCoolDown: 0
   SkillPrefab: {fileID: 3073960731093703379}
