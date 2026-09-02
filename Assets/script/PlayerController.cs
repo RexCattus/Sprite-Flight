@@ -5,26 +5,26 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using System.Runtime.CompilerServices;
 using System.Collections;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
+    public static event Action<float> OnPlayerDeath;
+    public static event Action<float> OnPlayerScoreUpdate;
+    public static event Action<float, float> OnPlayerFuelUpdate;
+
     Rigidbody2D rb;
     public float score = 0f;
 
     [Header("change settings")]
     public float speed = 1f;
     public float maxSpeed = 5f;
-    public float scoreMutiplier = 1f;
     public BaseSkill primarySkill;
 
     [Header("References")]
     public ParticleSystem[] flameEffects;
     public GameObject ExhaustEffect;
     public GameObject explosionEffect;
-    public GameManager gameManager; // GameManager để cập nhật điểm
-    public UIDocument UIdoc; // UI Document hiển thị điểm
-    private Label scoreText;
-    private Button Restart;
     public GameObject Ammo;
     public GameObject Shield;
     private Coroutine shieldCoroutine;
@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
     [Header("Fuel System")]
     public float maxFuel = 100f;
     public float currentFuel = 100f;
-    private VisualElement fuelFill;
+    //private VisualElement fuelFill;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -48,34 +48,18 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.freezeRotation = true; // tránh bị xoay khi đập vào tường
 
-        // auto tìm UIDoc và GameManager khi vào scene,tránh null reference
-        if (UIdoc == null) UIdoc = FindFirstObjectByType<UIDocument>();
-        if (gameManager == null) gameManager = FindFirstObjectByType<GameManager>();
-
-        if (UIdoc != null && UIdoc.rootVisualElement != null)
-        {
-            scoreText = UIdoc.rootVisualElement.Q<Label>("ScoreLabel");
-            Restart = UIdoc.rootVisualElement.Q<Button>("Restart");
-            if (Restart != null)
-            {
-                Restart.style.display = DisplayStyle.None;
-                Restart.clicked += RestartGame;
-            }
-            fuelFill = UIdoc.rootVisualElement.Q<VisualElement>("Fuel_Fill");
-        }
-        else
-        {
-            Debug.LogError("Không tìm thấy UI Document trong Scene");
-        }
-
         // vòng lặp chạy full flameEffect khi start do có nhiều particle system
         foreach (var p in flameEffects) { if (p != null) p.Play(); }
+        OnPlayerFuelUpdate?.Invoke(currentFuel, maxFuel);
     }
 
     // Update is called once per frame
     void Update()
     {
-        UpdateScore();
+        score += Time.deltaTime * 1;
+        //UpdateScore();
+        OnPlayerScoreUpdate?.Invoke(score);
+
         if (Keyboard.current.spaceKey.wasPressedThisFrame)
         {
             ShootAmmo();
@@ -108,14 +92,7 @@ public class PlayerController : MonoBehaviour
     {
         Instantiate(explosionEffect, transform.position, transform.rotation);
         AudioSource.PlayClipAtPoint(ShipExplode, Camera.main.transform.position);
-
-        if (CameraShake.Instance != null)
-        {
-            CameraShake.Instance.Shake(0.3f, 0.25f);
-        }
-
-        Restart.style.display = DisplayStyle.Flex;
-        gameManager.end_work(score);
+        OnPlayerDeath?.Invoke(score);
         Destroy(gameObject);
     }
 
@@ -124,8 +101,8 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Fuel"))
         {
             currentFuel = Mathf.Min(currentFuel + 35f, maxFuel);
-            UpdateFuelUI();
-            // Destroy(other.gameObject);
+            OnPlayerFuelUpdate?.Invoke(currentFuel, maxFuel);
+
             other.gameObject.SetActive(false);
         }
         else if (other.gameObject.CompareTag("Shield"))
@@ -141,11 +118,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void UpdateScore()
-    {
-        score += Time.deltaTime * scoreMutiplier;
-        scoreText.text = "Score: " + Mathf.FloorToInt(score); //Cập nhật điểm trên UI
-    }
     private void MovePlayer()
     {
         // Nếu đang giữ chuột
@@ -185,7 +157,8 @@ public class PlayerController : MonoBehaviour
 
                 currentFuel -= Time.deltaTime * 3f;
                 currentFuel = Mathf.Clamp(currentFuel, 0f, maxFuel);
-                UpdateFuelUI();
+
+                OnPlayerFuelUpdate?.Invoke(currentFuel, maxFuel);
             }
             else
             {
@@ -222,31 +195,35 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-    private void RestartGame()
+
+    private void OnEnable()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Tải lại scene hiện tại để restart
+        Bullet.OnScoreBonus += handleScoreBonus;
     }
 
-    private void UpdateFuelUI()
+    private void OnDisable()
     {
-        float FuelPercentage = (currentFuel / maxFuel) * 100f;
-        if (fuelFill != null)
-        {
-            fuelFill.style.height = new Length(FuelPercentage, LengthUnit.Percent);
-        }
+        Bullet.OnScoreBonus -= handleScoreBonus;
     }
+
+    private void handleScoreBonus(float bonus)
+    {
+        score += bonus;
+    }
+
     private void ShootAmmo()
     {
         if (Ammo != null && currentFuel >= 10f)
         {
-            //Instantiate(Ammo, ShootLocation.position, ShootLocation.rotation);
             ObjectPooler.Instance.SpawnFromPool("Bullet", ShootLocation.position, ShootLocation.rotation);
 
             currentFuel -= 3f;
-            UpdateFuelUI();
+
+            OnPlayerFuelUpdate?.Invoke(currentFuel, maxFuel);
             SFXSound.PlayOneShot(ShootSound);
         }
     }
+
     private IEnumerator ActivateShield(float duration)
     {
         Shield.SetActive(true);

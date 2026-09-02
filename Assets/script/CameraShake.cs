@@ -29,6 +29,21 @@ public class CameraShake : MonoBehaviour
 
     }
 
+    private void OnEnable()
+    {
+        PlayerController.OnPlayerDeath += handlePlayerDeath;
+    }
+
+    private void OnDisable()
+    {
+        PlayerController.OnPlayerDeath -= handlePlayerDeath;
+    }
+
+    private void handlePlayerDeath(float score)
+    {
+        Shake(0.3f, 0.25f);
+    }
+
     public void Shake(float duration = 0.3f, float magnitude = 0.25f)
     {
         if (shakeCoroutine != null)

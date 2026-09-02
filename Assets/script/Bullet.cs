@@ -1,16 +1,11 @@
 using UnityEngine;
+using System;
 
 public class Bullet : MonoBehaviour
 {
+    public static event Action<float> OnScoreBonus;
     [SerializeField] private float speed = 15f;
-    PlayerController playerController;
     [SerializeField] private AudioClip RockExplosionClip;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Awake()
-    {
-        playerController = FindFirstObjectByType<PlayerController>();
-    }
 
     // Update is called once per frame
     void Update()
@@ -27,10 +22,8 @@ public class Bullet : MonoBehaviour
         // Thiên thạch
         if (hitTarget.TryGetComponent<Obstacle>(out Obstacle rock)) // tìm Component Obstacle rồi đưa vào một biến mới là rock 
         {
-            if (playerController != null)
-            {
-                playerController.score += 10;
-            }
+            OnScoreBonus?.Invoke(10f);
+
             if (RockExplosionClip != null && Camera.main != null)
             {
                 AudioSource.PlayClipAtPoint(RockExplosionClip, Camera.main.transform.position);
@@ -43,10 +36,8 @@ public class Bullet : MonoBehaviour
         // Enemy Ship
         if (hitTarget.TryGetComponent<DroneEnemy>(out DroneEnemy drone))
         {
-            if (playerController != null)
-            {
-                playerController.score += 10;
-            }
+            OnScoreBonus?.Invoke(10f);
+
             drone.Die();
             gameObject.SetActive(false);
             return;
