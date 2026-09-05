@@ -42,7 +42,7 @@ public class DroneSpawner : MonoBehaviour
             new Vector3(camPos.x + camWidth + screenOffset, camPos.y + camHeight + screenOffset, 0f)  // Trên Phải
         };
 
-        // Chọn ngẫu nhiên 1 góc để sinh tàu địch
+        // Chọn random 1 góc để sinh tàu địch
         Vector3 spawnPos = corners[Random.Range(0, corners.Length)];
         Instantiate(dronePrefab, spawnPos, Quaternion.identity);
     }

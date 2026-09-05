@@ -8,32 +8,43 @@ public class ShopManager : MonoBehaviour
     private int playerCoins;
 
     private Label txtCoins;
-    private Label txtNote;
     private Button btnBack;
     private Button btnShip1;
 
-    // Khai báo cho Máy bay số 2
+    // Ship 2 và vv
     private Button btnShip2;
+    private Label txtNote2;
     [SerializeField] private int ship2Price = 200;
 
     private Button btnShip3;
+    private Label txtNote3;
     [SerializeField] private int ship3Price = 300;
 
     private Button btnShip4;
-    [SerializeField] private int ship4Price = 0;
+    private Label txtNote4;
+    [SerializeField] private int ship4Price = 400;
 
     void Start()
     {
         var root = uiDoc.rootVisualElement;
 
         txtCoins = root.Q<Label>("txtCoins");
-        txtNote = root.Q<Label>("Thongbao");
         btnBack = root.Q<Button>("Back");
         btnShip1 = root.Q<Button>("btnShip1");
         btnShip2 = root.Q<Button>("btnShip2");
         btnShip3 = root.Q<Button>("btnShip3");
         btnShip4 = root.Q<Button>("btnShip4");
-        if (txtNote != null) txtNote.text = "";
+
+        var ship2Element = root.Q<VisualElement>("Ship2");
+        if (ship2Element != null) txtNote2 = ship2Element.Q<Label>("Thongbao");
+        var ship3Element = root.Q<VisualElement>("Ship3");
+        if (ship3Element != null) txtNote3 = ship3Element.Q<Label>("Thongbao");
+        var ship4Element = root.Q<VisualElement>("Ship4");
+        if (ship4Element != null) txtNote4 = ship4Element.Q<Label>("Thongbao");
+
+        if (txtNote2 != null) txtNote2.text = "";
+        if (txtNote3 != null) txtNote3.text = "";
+        if (txtNote4 != null) txtNote4.text = "";
 
         UpdateCoinUI();
         UpdateAllButtons();
@@ -47,7 +58,7 @@ public class ShopManager : MonoBehaviour
         btnShip4.clicked += OnShip4Clicked;
     }
 
-    // Cập nhật và hiển thị tiền
+    // Cập nhật, show tiền
     void UpdateCoinUI()
     {
         playerCoins = PlayerPrefs.GetInt("PlayerCoins", 0);
@@ -68,7 +79,6 @@ public class ShopManager : MonoBehaviour
         Debug.Log("Đã trang bị máy bay số 1");
     }
 
-    // Hàm xử lý khi bấm nút Ship 2
     void OnShip2Clicked()
     {
         int isUnlocked = PlayerPrefs.GetInt("Ship2_Unlocked", 0);
@@ -80,14 +90,14 @@ public class ShopManager : MonoBehaviour
                 // Trừ tiền
                 playerCoins -= ship2Price;
                 PlayerPrefs.SetInt("PlayerCoins", playerCoins);
-                txtNote.text = "";
+                if (txtNote2 != null) txtNote2.text = "";
 
 
-                // Mở khóa 
+                // Unlocked 
                 PlayerPrefs.SetInt("Ship2_Unlocked", 1);
                 PlayerPrefs.Save();
 
-                // Cập nhật lại UI
+                // Update UI
                 UpdateCoinUI();
                 UpdateAllButtons();
                 Debug.Log("Đã mua thành công");
@@ -95,12 +105,12 @@ public class ShopManager : MonoBehaviour
             else
             {
                 Debug.Log("Không đủ tiền!");
-                txtNote.text = "Không đủ tiền";
+                if (txtNote2 != null) txtNote2.text = "Không đủ tiền";
             }
         }
         else // Đã mua thì select
         {
-            // Số 2 là ID đại diện cho máy bay này
+            // 2 = ID đại diện cho máy bay 2
             PlayerPrefs.SetInt("SelectedShip", 2);
             PlayerPrefs.Save();
 
@@ -119,7 +129,7 @@ public class ShopManager : MonoBehaviour
             {
                 playerCoins -= ship3Price;
                 PlayerPrefs.SetInt("PlayerCoins", playerCoins);
-                txtNote.text = "";
+                if (txtNote3 != null) txtNote3.text = "";
 
                 PlayerPrefs.SetInt("Ship3_Unlocked", 1);
                 PlayerPrefs.Save();
@@ -131,7 +141,7 @@ public class ShopManager : MonoBehaviour
             else
             {
                 Debug.Log("Không đủ tiền!");
-                txtNote.text = "Không đủ tiền";
+                if (txtNote3 != null) txtNote3.text = "Không đủ tiền";
             }
         }
         else
@@ -154,7 +164,7 @@ public class ShopManager : MonoBehaviour
             {
                 playerCoins -= ship4Price;
                 PlayerPrefs.SetInt("PlayerCoins", playerCoins);
-                txtNote.text = "";
+                if (txtNote4 != null) txtNote4.text = "";
 
                 PlayerPrefs.SetInt("Ship4_Unlocked", 1);
                 PlayerPrefs.Save();
@@ -167,7 +177,7 @@ public class ShopManager : MonoBehaviour
             else
             {
                 Debug.Log("Không đủ tiền!");
-                txtNote.text = "Không đủ tiền";
+                if (txtNote4 != null) txtNote4.text = "Không đủ tiền";
             }
         }
         else

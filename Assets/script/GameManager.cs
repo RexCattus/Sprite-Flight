@@ -3,26 +3,28 @@ using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
-    public float thoigianmax = 0f;
-    public UIDocument UIdoc; // Tham chiếu đến UI Document
+    private float thoigianmax = 0f;
+    [SerializeField] private UIDocument UIdoc;
     private Label MaxScore;
     private Label scoreText;
     private Button Restart;
     private VisualElement fuelFill;
 
-    public float timeSpawn = 1.5f;
-    public float gioihanY = 6.5f;
-    public float vitrispawnX = 20f;
-    public float fuelTimeSpawn = 4.5f; // Tần suất xuất hiện bình xăng
+    [SerializeField] private float gioihanY = 6.5f;
+    [SerializeField] private float vitrispawnX = 20f;
+    [SerializeField] private float timeSpawn = 1.2f; // Tốc độ spawn hiện tại
+    [SerializeField] private float initialTimeSpawn = 1.2f; // Tốc độ start
+    [SerializeField] private float minTimeSpawn = 0.35f; // Tốc độ nhanh nhất đc giới hạn
     private float rockTimeCount = 0f;
+    [SerializeField] private float fuelTimeSpawn = 4.5f; // Tần suất spawn fuel
     private float fuelTimeCount = 0f;
+    [SerializeField] private float shieldTimeSpawn = 10f; // Tần suất spawn shield
     private float shieldTimeCount = 0f;
-    [SerializeField] private float shieldTimeSpawn = 10f; // Tần suất xuất hiện khiên
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        thoigianmax = PlayerPrefs.GetFloat("HighScore", 0f); // Lấy điểm cao nhất đã lưu, mặc định là 0 nếu chưa có
+        thoigianmax = PlayerPrefs.GetFloat("HighScore", 0f); // Lấy điểm cao nhất đã lưu, default = 0
         MaxScore = UIdoc.rootVisualElement.Q<Label>("MaxScore");
         scoreText = UIdoc.rootVisualElement.Q<Label>("ScoreLabel");
         fuelFill = UIdoc.rootVisualElement.Q<VisualElement>("Fuel_Fill");
@@ -38,6 +40,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timeSpawn = Mathf.Max(minTimeSpawn, initialTimeSpawn - (Time.timeSinceLevelLoad * 0.015f));
         rockTimeCount += Time.deltaTime;
         if (rockTimeCount >= timeSpawn)
         {
@@ -82,7 +85,7 @@ public class GameManager : MonoBehaviour
 
     private void handlePlayerScoreUpdate(float score)
     {
-        scoreText.text = "Score: " + Mathf.FloorToInt(score); //Cập nhật điểm trên UI
+        scoreText.text = "Score: " + Mathf.FloorToInt(score); // Update điểm trên UI
     }
 
     private void handleFuelUpdate(float currentFuel, float maxFuel)
@@ -98,11 +101,11 @@ public class GameManager : MonoBehaviour
     {
         if (thoigian > thoigianmax)
         {
-            PlayerPrefs.SetFloat("HighScore", thoigian); // Lưu điểm cao nhất mới nếu vượt qua điểm cũ
+            PlayerPrefs.SetFloat("HighScore", thoigian); // Lưu điểm new cao nhất nếu vượt qua điểm cũ
 
             PlayerPrefs.Save();
 
-            MaxScore.text = "New High Score: " + Mathf.FloorToInt(thoigian); // Cập nhật điểm cao nhất trên UI
+            MaxScore.text = "New High Score: " + Mathf.FloorToInt(thoigian); // Update điểm cao nhất trên UI
         }
         else
         {
