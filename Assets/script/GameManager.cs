@@ -136,18 +136,18 @@ public class GameManager : MonoBehaviour
         // Chia Tỉ lệ
         if (tyLe <= 45)
         {
-            // Từ 1 đến 45 (Chiếm 45%)
-            rockTag = "Rock0";
+            // Từ 1 đến 45 (45%)
+            rockTag = "Rock1";
         }
         else if (tyLe <= 90)
         {
-            // Từ 46 đến 90 (Chiếm 45%)
-            rockTag = "Rock1";
+            // Từ 46 đến 90 (45%)
+            rockTag = "Rock2";
         }
         else
         {
-            // Từ 91 đến 100 (Chiếm 10% còn lại)
-            rockTag = "Rock2";
+            // Từ 91 đến 100 (10% còn lại)
+            rockTag = "Rock3";
         }
 
         ObjectPooler.Instance.SpawnFromPool(rockTag, vitriSpawn, Quaternion.identity);
